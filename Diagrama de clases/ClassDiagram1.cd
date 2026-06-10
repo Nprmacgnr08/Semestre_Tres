@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Semestre_Tres.Clases.Expedient" Collapsed="true">
+    <Position X="10.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAgAAAGAFEAQgGABCARUACgAAAIAAAQAhAAAAABAAA=</HashCode>
+      <FileName>Clases\Expedient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Clases.Patient" Collapsed="true">
+    <Position X="13.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAUAACACIBAARQAQAAACAAAACBAAAIAAAMIA=</HashCode>
+      <FileName>Clases\Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Clases.Appointment" Collapsed="true">
+    <Position X="10.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAUAAAAMAAAAwEAAAAAQAQEABAAAQAAABAQI=</HashCode>
+      <FileName>Clases\Appointment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Clases.Consultation" Collapsed="true">
+    <Position X="13.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAgAAAQAFAAQBAAAAAQEACCAAAAAAAQAAAACAABQAA=</HashCode>
+      <FileName>Clases\Consultation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Clases.Payment" Collapsed="true">
+    <Position X="10.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAhAAgCAFEAQAEAAAAQEACACAAAgBAQAIAAAAABAAA=</HashCode>
+      <FileName>Clases\Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Clases.Treatment" Collapsed="true">
+    <Position X="13.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAABEAiQAABAAAAABQAAAABAgAAAAAAAAAAAAI=</HashCode>
+      <FileName>Clases\Treatment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Persistence.DatabaseConnection">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAEAAAAAAAAABgAAQAAAAAAAAAABBAABAA=</HashCode>
+      <FileName>Persistence\DatabaseConnection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Semestre_Tres.Persistence.DeleteCommand">
+    <Position X="5.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\DeleteCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Persistence.InsertCommand">
+    <Position X="3.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Persistence\InsertCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Persistence.SelectQuery">
+    <Position X="7.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAEAAAAAA=</HashCode>
+      <FileName>Persistence\SelectQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Persistence.UpdateCommand">
+    <Position X="1" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\UpdateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Bussines.AppointmentBusiness" Collapsed="true">
+    <Position X="12" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAhQAAAAAAA=</HashCode>
+      <FileName>Bussines\AppointmentBusiness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Bussines.ConsultationBusiness" Collapsed="true">
+    <Position X="15.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAABCAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Bussines\ConsultationBusiness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Bussines.ExpedientBusiness">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAABAACAAGAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bussines\ExpedientBusiness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Bussines.PatientBusiness" Collapsed="true">
+    <Position X="15.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAEAAAAAAAECAAAAAAAAAAAABQAA=</HashCode>
+      <FileName>Bussines\PatientBusiness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Bussines.PaymentBusiness">
+    <Position X="12" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAgAAAAAAAAAAEIAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Bussines\PaymentBusiness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Semestre_Tres.Bussines.TreatmentBusiness" Collapsed="true">
+    <Position X="15.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAEAABACAAAADAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bussines\TreatmentBusiness.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
