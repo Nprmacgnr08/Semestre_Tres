@@ -94,6 +94,8 @@ namespace Semestre_Tres.Pantallas
             FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
             menu?.AbrirFormulario(new FormTratamiento());
         }
+
+        
     }
 
 }
