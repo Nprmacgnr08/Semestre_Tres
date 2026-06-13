@@ -110,7 +110,6 @@
             comboxgander.Name = "comboxgander";
             comboxgander.Size = new Size(252, 33);
             comboxgander.TabIndex = 30;
-            comboxgander.SelectedIndexChanged += comboxgander_SelectedIndexChanged;
             // 
             // txtadrees
             // 
@@ -340,7 +339,7 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Label label1;
-        private TextBox textBox2;
+        
         private Button btncancelar;
         private ComboBox comboxgander;
         private TextBox txtadrees;
