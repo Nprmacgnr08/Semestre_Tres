@@ -197,6 +197,8 @@ namespace Semestre_Tres.Clases
         }
         #endregion
 
+        public int GetPatientId() => _patientId;
+        public int GetTreatmentId() => _treatmentId;
 
 
     }

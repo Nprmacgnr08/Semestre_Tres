@@ -75,6 +75,7 @@
             btnnuevoexpediente.Text = "Nuevo Expediente";
             btnnuevoexpediente.TextAlign = ContentAlignment.MiddleRight;
             btnnuevoexpediente.UseVisualStyleBackColor = false;
+            btnnuevoexpediente.Click += btnnuevoexpediente_Click;
             // 
             // pictureBox3
             // 
@@ -86,6 +87,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox3.TabIndex = 4;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // button1
             // 
@@ -151,7 +153,6 @@
             TxtBuscar.PlaceholderText = "Buscar por nombre del paciente";
             TxtBuscar.Size = new Size(459, 35);
             TxtBuscar.TabIndex = 1;
-            TxtBuscar.TextChanged += TxtBuscar_TextChanged;
             // 
             // flpexpedientes
             // 

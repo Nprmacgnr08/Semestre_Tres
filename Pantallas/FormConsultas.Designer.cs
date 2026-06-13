@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            pictureBox4 = new PictureBox();
+            btnconsulta = new Button();
             btnnuevoexpediente = new Button();
             pictureBox3 = new PictureBox();
             button1 = new Button();
@@ -36,14 +38,12 @@
             BtnCita = new Button();
             pictureBox1 = new PictureBox();
             TxtBuscar = new TextBox();
-            btnconsulta = new Button();
-            pictureBox4 = new PictureBox();
             flpConsultas = new FlowLayoutPanel();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -63,6 +63,36 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 83);
             panel1.TabIndex = 3;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox4.Image = Properties.Resources.magnifying_glass_search_icon_208829;
+            pictureBox4.Location = new Point(445, 28);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(35, 35);
+            pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox4.TabIndex = 4;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
+            // btnconsulta
+            // 
+            btnconsulta.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnconsulta.BackColor = Color.FromArgb(127, 164, 201);
+            btnconsulta.Cursor = Cursors.Hand;
+            btnconsulta.FlatStyle = FlatStyle.Flat;
+            btnconsulta.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnconsulta.Image = Properties.Resources._269362_plus_icon;
+            btnconsulta.ImageAlign = ContentAlignment.MiddleLeft;
+            btnconsulta.Location = new Point(575, 28);
+            btnconsulta.Name = "btnconsulta";
+            btnconsulta.Size = new Size(187, 35);
+            btnconsulta.TabIndex = 5;
+            btnconsulta.Text = "Nueva consulta";
+            btnconsulta.TextAlign = ContentAlignment.MiddleRight;
+            btnconsulta.UseVisualStyleBackColor = false;
+            btnconsulta.Click += btnconsulta_Click;
             // 
             // btnnuevoexpediente
             // 
@@ -157,34 +187,6 @@
             TxtBuscar.Size = new Size(459, 35);
             TxtBuscar.TabIndex = 1;
             // 
-            // btnconsulta
-            // 
-            btnconsulta.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnconsulta.BackColor = Color.FromArgb(127, 164, 201);
-            btnconsulta.Cursor = Cursors.Hand;
-            btnconsulta.FlatStyle = FlatStyle.Flat;
-            btnconsulta.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnconsulta.Image = Properties.Resources._269362_plus_icon;
-            btnconsulta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnconsulta.Location = new Point(575, 28);
-            btnconsulta.Name = "btnconsulta";
-            btnconsulta.Size = new Size(187, 35);
-            btnconsulta.TabIndex = 5;
-            btnconsulta.Text = "Nueva consulta";
-            btnconsulta.TextAlign = ContentAlignment.MiddleRight;
-            btnconsulta.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBox4.Image = Properties.Resources.magnifying_glass_search_icon_208829;
-            pictureBox4.Location = new Point(445, 28);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(35, 35);
-            pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox4.TabIndex = 4;
-            pictureBox4.TabStop = false;
-            // 
             // flpConsultas
             // 
             flpConsultas.AutoScroll = true;
@@ -207,10 +209,10 @@
             Text = "FormConsultas";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 

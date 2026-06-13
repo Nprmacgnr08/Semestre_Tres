@@ -52,6 +52,10 @@ namespace Semestre_Tres.Bussines
         {
             return _appointment.DeleteAppointment();
         }
+        public DataTable ListAll()
+        {
+            return _appointment.Listar();
+        }
 
         public DataTable SearchByPatientName(string nombre)
         {

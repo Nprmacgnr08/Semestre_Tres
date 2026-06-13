@@ -184,6 +184,45 @@ namespace Semestre_Tres.Clases
             }
             return result;
         }
+        public DataTable BuscarPorId(int idCita)
+        {
+            string sql = @"SELECT a.AppointmentId, a.Date, a.Time, a.Reason, a.Status, a.IdPatient, p.Name AS Paciente
+                   FROM Appointment a
+                   INNER JOIN Patient p ON a.IdPatient = p.PatientId
+                   WHERE a.AppointmentId = @IdCita";
+
+            SqlParameter[] parameters = { new SqlParameter("@IdCita", idCita) };
+
+            using SelectQuery select = new SelectQuery();
+            DataTable result = new DataTable();
+            using (SqlDataReader reader = select.ExecuteSelect(sql, parameters))
+            {
+                result.Load(reader);
+            }
+            return result;
+        }
+        public DataTable BuscarPorFecha(string fechaTexto)
+        {
+            if (!DateTime.TryParse(fechaTexto, out DateTime fecha))
+            {
+                throw new Exception("La fecha ingresada no es válida.");
+            }
+
+            string sql = @"SELECT AppointmentId, Date, Time, Reason, Status, IdPatient
+                   FROM Appointment
+                   WHERE CAST(Date AS DATE) = CAST(@Fecha AS DATE)";
+
+            SqlParameter[] parameters = { new SqlParameter("@Fecha", SqlDbType.DateTime) { Value = fecha } };
+
+            using SelectQuery select = new SelectQuery();
+            DataTable result = new DataTable();
+            using (SqlDataReader reader = select.ExecuteSelect(sql, parameters))
+            {
+                result.Load(reader);
+            }
+            return result;
+        }
+
         // Listar todas las citas
         public DataTable Listar()
         {

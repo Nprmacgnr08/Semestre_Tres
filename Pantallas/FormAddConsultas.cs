@@ -20,15 +20,14 @@ namespace Semestre_Tres.Pantallas
         }
         private void FormAddConsultas_Load(object sender, EventArgs e)
         {
-            // Aquí puedes cargar datos en los controles del formulario, como ComboBoxes para pacientes y tratamientos.
-            // Llenar ComboBox de pacientes
+            // 🔹 Cargar pacientes
             DataTable dtPacientes = Consultation.ListarPacientes();
             ComPacientes.DataSource = dtPacientes;
             ComPacientes.DisplayMember = "Name";
             ComPacientes.ValueMember = "PatientId";
             ComPacientes.SelectedIndex = -1;
 
-            // Llenar ComboBox de tratamientos
+            // 🔹 Cargar tratamientos
             DataTable dtTratamientos = Consultation.ListarTratamientos();
             cmbtratamiento.DataSource = dtTratamientos;
             cmbtratamiento.DisplayMember = "Name";
@@ -40,35 +39,64 @@ namespace Semestre_Tres.Pantallas
         {
             try
             {
-                // Crear entidad y asignar asociaciones por Id (más eficiente que cargar objetos completos)
-                Consultation consulta = new Consultation();
-                consulta.Diagnosis = Txtdiagnosticos.Text.Trim();
-                consulta.Observations = textBox1.Text.Trim();
+                // 🔹 Validaciones básicas
+                if (ComPacientes.SelectedIndex == -1)
+                    throw new Exception("Debe seleccionar un paciente.");
 
-                // Asignar ids desde ComboBoxes
-                if (ComPacientes.SelectedValue is int pacienteId)
-                    consulta.SetPatientById(pacienteId);
-                else
-                    throw new Exception("Seleccione un paciente.");
+                if (cmbtratamiento.SelectedIndex == -1)
+                    throw new Exception("Debe seleccionar un tratamiento.");
 
-                if (cmbtratamiento.SelectedValue is int tratamientoId)
-                    consulta.SetTreatmentById(tratamientoId);
-                else
-                    throw new Exception("Seleccione un tratamiento.");
+                if (string.IsNullOrWhiteSpace(Txtdiagnosticos.Text))
+                    throw new Exception("Debe ingresar un diagnóstico.");
 
-                // Business
+                if (string.IsNullOrWhiteSpace(textBox1.Text))
+                    throw new Exception("Debe ingresar observaciones.");
+
+                // 🔹 Crear entidad
+                Consultation consulta = new Consultation
+                {
+                    ConsultationDate = DateTime.Now,
+                    Diagnosis = Txtdiagnosticos.Text.Trim(),
+                    Observations = textBox1.Text.Trim()
+                };
+
+                // 🔹 Asignar IDs desde ComboBoxes
+                consulta.SetPatientById(Convert.ToInt32(ComPacientes.SelectedValue));
+                consulta.SetTreatmentById(Convert.ToInt32(cmbtratamiento.SelectedValue));
+
+                // 🔹 Guardar usando capa de negocio
                 ConsultationBusiness business = new ConsultationBusiness(consulta);
                 int filas = business.AddConsultation();
 
                 if (filas > 0)
+                {
                     MessageBox.Show("Consulta guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Volver al listado de consultas
+                    FormMenuMedico menu = Application.OpenForms["FormMenuMedico"] as FormMenuMedico;
+                    menu?.AbrirFormulario(new FormConsultas());
+                }
                 else
+                {
                     MessageBox.Show("No se guardó la consulta.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+            FormMenuMedico menu = Application.OpenForms["FormMenuMedico"] as FormMenuMedico;
+            menu?.AbrirFormulario(new FormConsultas());
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            FormMenuMedico menu = Application.OpenForms["FormMenuMedico"] as FormMenuMedico;
+            menu?.AbrirFormulario(new FormConsultas());
         }
     }
 }

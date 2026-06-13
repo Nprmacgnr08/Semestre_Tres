@@ -1,4 +1,5 @@
-﻿using Semestre_Tres.Clases;
+﻿using Semestre_Tres.Bussines;
+using Semestre_Tres.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,78 +9,113 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Semestre_Tres.Pantallas
 {
     public partial class FormEditPatient : Form
     {
-        private int idPatient;
+        private int _patientId;
         public FormEditPatient(int IdPatient)
         {
             InitializeComponent();
-            idPatient = IdPatient;
-        
-        }
+            _patientId = IdPatient;
 
+        }
+        private void CargarDatosPaciente()
+        {
+            try
+            {
+                Patient paciente = new Patient();
+                Patient datos = paciente.GetPatientById(_patientId);
+
+                if (datos != null && datos.PatientId > 0)
+                {
+                    txtname.Text = datos.Name;
+                    txtLastname.Text = datos.Lastname;
+                    mtbidcard.Text = datos.IdCard;
+                    txtphone.Text = datos.Phone;
+                    txtgmail.Text = datos.Gmail;
+                    comboxgander.Text = datos.Gender;
+                    mtbbirthdate.Text = datos.BirthDate.ToString("yyyy-MM-dd");
+                    txtadrees.Text = datos.Address;
+                 
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró información del paciente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos del paciente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-            menu.AbrirFormulario(new FormPaciente());
+            FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+            menu?.AbrirFormulario(new FormPaciente());
         }
         private void FormEditPatient_Load(object sender, EventArgs e)
         {
 
             
-            Patient p = new Patient();
-            DataTable datos = p.BuscarPorId(idPatient); //  ahora busca por clave primaria
-
-            if (datos.Rows.Count > 0)
-            {
-                txtname.Text = datos.Rows[0]["Name"].ToString();
-                txtLastname.Text = datos.Rows[0]["Lastname"].ToString();
-                mtbidcard.Text = datos.Rows[0]["IdCard"].ToString();
-                txtphone.Text = datos.Rows[0]["Phone"].ToString();
-                txtgmail.Text = datos.Rows[0]["Gmail"].ToString();
-                mtbbirthdate.Text = Convert.ToDateTime(datos.Rows[0]["BirthDate"]).ToString("yyyy-MM-dd");
-                txtadrees.Text = datos.Rows[0]["Address"].ToString();
-                comboxgander.Text = datos.Rows[0]["Gender"].ToString();
+         
             
-            }
         }
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            //  Validación de campos obligatorios
             if (string.IsNullOrWhiteSpace(txtname.Text) ||
-                string.IsNullOrWhiteSpace(txtLastname.Text) ||
-                string.IsNullOrWhiteSpace(mtbidcard.Text))
+            string.IsNullOrWhiteSpace(txtLastname.Text) ||
+            string.IsNullOrWhiteSpace(mtbidcard.Text))
             {
-                MessageBox.Show("Por favor, complete los campos obligatorios marcados con *.");
-                return; // Detiene la ejecución si falta información
+                MessageBox.Show("Por favor, complete los campos obligatorios marcados con *.",
+                                "Campos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            // Si pasa la validación, crea el objeto y guarda
-            Patient p = new Patient
+            if (!DateTime.TryParse(mtbbirthdate.Text, out DateTime birthDate))
             {
-                Name = txtname.Text,
-                Lastname = txtLastname.Text,
-                Phone = txtphone.Text,
-                Gmail = txtgmail.Text,
+                MessageBox.Show("La fecha de nacimiento no es válida.",
+                                "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Patient paciente = new Patient
+            {
+                PatientId = _patientId,
+                Name = txtname.Text.Trim(),
+                Lastname = txtLastname.Text.Trim(),
+                Phone = txtphone.Text.Trim(),
+                Gmail = txtgmail.Text.Trim(),
                 Gender = comboxgander.Text,
-                BirthDate = DateTime.Parse(mtbbirthdate.Text),
-                Address = txtadrees.Text,
-                IdCard = mtbidcard.Text
+                BirthDate = birthDate,
+                Address = txtadrees.Text.Trim(),
+                IdCard = mtbidcard.Text.Trim(),
+            
             };
 
-            if (p.Modificar())
+            PatientBusiness business = new PatientBusiness(paciente);
+
+            try
             {
-                MessageBox.Show("Cambios guardados correctamente.");
-                FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-                menu.AbrirFormulario(new FormPaciente()); //  vuelve al listado y refresca
+                int result = business.UpdatePatient();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Cambios guardados correctamente.",
+                                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Volver al listado dentro del panel contenedor
+                    FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+                    menu?.AbrirFormulario(new FormPaciente());
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar cambios.");
+                MessageBox.Show(ex.Message, "Error al actualizar paciente", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }

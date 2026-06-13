@@ -74,6 +74,7 @@
             picSalir.SizeMode = PictureBoxSizeMode.Zoom;
             picSalir.TabIndex = 4;
             picSalir.TabStop = false;
+            picSalir.Click += picSalir_Click;
             // 
             // pictureBox1
             // 
@@ -239,6 +240,7 @@
             btnGuardar.TabIndex = 7;
             btnGuardar.Text = "Guardar ";
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btncancelar
             // 
@@ -250,6 +252,7 @@
             btncancelar.TabIndex = 32;
             btncancelar.Text = "Cancelar";
             btncancelar.UseVisualStyleBackColor = true;
+            btncancelar.Click += btncancelar_Click;
             // 
             // FormAddTratamiento
             // 

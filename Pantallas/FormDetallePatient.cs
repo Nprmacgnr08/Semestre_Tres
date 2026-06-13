@@ -1,4 +1,5 @@
-﻿using Semestre_Tres.Clases;
+﻿using Semestre_Tres.Bussines;
+using Semestre_Tres.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,36 +14,48 @@ namespace Semestre_Tres.Pantallas
 {
     public partial class FormDetallePatient : Form
     {
-        private int idPatient;
+        private int _patientId;
         public FormDetallePatient(int IdPatient)
         {
             InitializeComponent();
-            idPatient = IdPatient;
+           _patientId = IdPatient;
         }
 
         private void FormDetallePatient_Load(object sender, EventArgs e)
         {
 
-            Patient p = new Patient();
-            DataTable datos = p.BuscarPorId(idPatient); // ✅ usamos el nuevo método
+            CargarDetallesPaciente();
+        }
 
-            if (datos.Rows.Count > 0)
+        private void CargarDetallesPaciente()
+        {
+            try
             {
-                LblName.Text = datos.Rows[0]["Name"].ToString();
-                LblLastname.Text = datos.Rows[0]["Lastname"].ToString();
-                LblIdcard.Text = datos.Rows[0]["IdCard"].ToString();
-                LblPhone.Text = datos.Rows[0]["Phone"].ToString();
-                LblGmail.Text = datos.Rows[0]["Gmail"].ToString();
-                LblBirthDate.Text = Convert.ToDateTime(datos.Rows[0]["BirthDate"]).ToString("dd/MM/yyyy");
-                LblAdrees.Text = datos.Rows[0]["Address"].ToString();
-                LblGender.Text = datos.Rows[0]["Gender"].ToString();
-         
+                Patient paciente = new Patient();
+                PatientBusiness business = new PatientBusiness(paciente);
+
+                // Obtener el paciente por ID
+                Patient datos = paciente.GetPatientById(_patientId);
+
+                if (datos != null && datos.PatientId > 0)
+                {
+                    LblName.Text = datos.Name;
+                    LblLastname.Text = datos.Lastname;
+                    LblIdcard.Text = datos.IdCard;
+                    LblPhone.Text = datos.Phone;
+                    LblBirthDate.Text = datos.BirthDate.ToString("dd/MM/yyyy");
+                    LblGmail.Text = datos.Gmail;
+                    LblAdrees.Text = datos.Address;
+                    LblGender.Text = datos.Gender;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró información del paciente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No se encontró información del paciente.");
-                FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-                menu.AbrirFormulario(new FormPaciente()); // ✅ vuelve al listado si no hay datos
+                MessageBox.Show($"Error al cargar los datos del paciente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void label10_Click(object sender, EventArgs e)
@@ -52,8 +65,8 @@ namespace Semestre_Tres.Pantallas
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-            menu.AbrirFormulario(new FormPaciente());
+            FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+            menu?.AbrirFormulario(new FormPaciente());
         }
     }
 }

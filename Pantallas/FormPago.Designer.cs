@@ -325,10 +325,11 @@
             pictureBox1.Image = Properties.Resources.magnifying_glass_search_icon_208829;
             pictureBox1.Location = new Point(462, 13);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(30, 30);
+            pictureBox1.Size = new Size(37, 33);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // BtnPago
             // 
@@ -344,6 +345,7 @@
             BtnPago.Text = "Registrar Pago";
             BtnPago.TextAlign = ContentAlignment.MiddleRight;
             BtnPago.UseVisualStyleBackColor = false;
+            BtnPago.Click += BtnPago_Click;
             // 
             // txtbuscar
             // 

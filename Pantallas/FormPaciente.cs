@@ -1,4 +1,5 @@
-﻿using Semestre_Tres.Clases;
+﻿using Semestre_Tres.Bussines;
+using Semestre_Tres.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,16 +22,22 @@ namespace Semestre_Tres.Pantallas
         // Carga la lista de pacientes al abrir el formulario
         private void FormPaciente_Load(object sender, EventArgs e)
         {
-            Patient p = new Patient();
-            dtgpaciente.DataSource = p.Listar();
+            CargarPacientes();
         }
 
+        private void CargarPacientes()
+        {
+            Patient paciente = new Patient();
+            PatientBusiness business = new PatientBusiness(paciente);
+            dtgpaciente.DataSource = business.ListAll();
+        }
         //Abre el formulario para agregar un nuevo paciente y refresca la lista después de agregar
         private void btnagregar_Click(object sender, EventArgs e)
         {
+
             FormAddpatient frm = new FormAddpatient();
-            FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-            menu.AbrirFormulario(frm); 
+            FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+            menu?.AbrirFormulario(frm);
         }
 
         // Abre el formulario de detalles del paciente seleccionado
@@ -38,16 +45,15 @@ namespace Semestre_Tres.Pantallas
         {
             if (dtgpaciente.SelectedRows.Count > 0)
             {
-                int idPatient = Convert.ToInt32(dtgpaciente.SelectedRows[0].Cells["IdPatient"].Value);
+                int idPatient = Convert.ToInt32(dtgpaciente.SelectedRows[0].Cells["PatientId"].Value);
                 FormDetallePatient frm = new FormDetallePatient(idPatient);
-                FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-                menu.AbrirFormulario(frm);
+                FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+                menu?.AbrirFormulario(frm);
             }
             else
             {
-                MessageBox.Show("Seleccione un paciente para ver detalles.");
+                MessageBox.Show("Seleccione un paciente para ver detalles.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
         }
 
         // Abre el formulario para editar el paciente seleccionado y refresca la lista después de editar
@@ -56,14 +62,14 @@ namespace Semestre_Tres.Pantallas
 
             if (dtgpaciente.SelectedRows.Count > 0)
             {
-                int idPatient = Convert.ToInt32(dtgpaciente.SelectedRows[0].Cells["IdPatient"].Value);
+                int idPatient = Convert.ToInt32(dtgpaciente.SelectedRows[0].Cells["PatientId"].Value);
                 FormEditPatient frm = new FormEditPatient(idPatient);
-                FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-                menu.AbrirFormulario(frm);
+                FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+                menu?.AbrirFormulario(frm);
             }
             else
             {
-                MessageBox.Show("Seleccione un paciente para editar.");
+                MessageBox.Show("Seleccione un paciente para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -74,21 +80,36 @@ namespace Semestre_Tres.Pantallas
         {
             if (dtgpaciente.SelectedRows.Count > 0)
             {
-                int idPatient = Convert.ToInt32(dtgpaciente.SelectedRows[0].Cells["IdPatient"].Value);
-                Patient p = new Patient();
-                if (p.Eliminar("IdPatient", idPatient))
+                int idPatient = Convert.ToInt32(dtgpaciente.SelectedRows[0].Cells["PatientId"].Value);
+
+                DialogResult confirm = MessageBox.Show("¿Desea eliminar este paciente?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
                 {
-                    MessageBox.Show("Paciente eliminado correctamente.");
-                    dtgpaciente.DataSource = p.Listar(); // refresca lista
-                }
-                else
-                {
-                    MessageBox.Show("Error al eliminar paciente.");
+                    Patient paciente = new Patient { PatientId = idPatient };
+                    PatientBusiness business = new PatientBusiness(paciente);
+
+                    try
+                    {
+                        int result = business.DeletePatient();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Paciente eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CargarPacientes();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo eliminar el paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione un paciente en la lista.");
+                MessageBox.Show("Seleccione un paciente en la lista.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -99,8 +120,17 @@ namespace Semestre_Tres.Pantallas
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Patient p = new Patient();
-            dtgpaciente.DataSource = p.BuscarPorCedula(textBox1.Text);
+            string cedula = textBox1.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(cedula))
+            {
+                MessageBox.Show("Ingrese una cédula para buscar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            Patient paciente = new Patient();
+            PatientBusiness business = new PatientBusiness(paciente);
+            dtgpaciente.DataSource = business.SearchByCedula(cedula);
         }
     }
 }

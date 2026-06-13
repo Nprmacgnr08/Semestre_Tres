@@ -83,6 +83,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // picSalir
             // 
@@ -292,6 +293,7 @@
             btncrear.TabIndex = 16;
             btncrear.Text = "Crear Expediente";
             btncrear.UseVisualStyleBackColor = false;
+            btncrear.Click += btncrear_Click;
             // 
             // btncancelar
             // 
@@ -303,6 +305,7 @@
             btncancelar.TabIndex = 32;
             btncancelar.Text = "Cancelar";
             btncancelar.UseVisualStyleBackColor = true;
+            btncancelar.Click += btncancelar_Click;
             // 
             // cmbPaciente
             // 
@@ -311,6 +314,7 @@
             cmbPaciente.Name = "cmbPaciente";
             cmbPaciente.Size = new Size(299, 23);
             cmbPaciente.TabIndex = 33;
+            cmbPaciente.SelectedIndexChanged += cmbPaciente_SelectedIndexChanged;
             // 
             // cmbtratamientos
             // 
@@ -321,7 +325,6 @@
             cmbtratamientos.Name = "cmbtratamientos";
             cmbtratamientos.Size = new Size(299, 25);
             cmbtratamientos.TabIndex = 34;
-            cmbtratamientos.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // FormAddExpediente
             // 

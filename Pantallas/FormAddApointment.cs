@@ -1,4 +1,5 @@
-﻿using Semestre_Tres.Clases;
+﻿using Semestre_Tres.Bussines;
+using Semestre_Tres.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,8 @@ namespace Semestre_Tres.Pantallas
 {
     public partial class FormAddApointment : Form
     {
-        public bool EsEdicion { get; set; }
-        public int IdCita { get; set; }
+        public bool EsEdicion { get; set; } = false;
+        public int IdCita { get; set; } = 0;
 
         List<string> horasBase = new List<string>
 {
@@ -32,30 +33,39 @@ namespace Semestre_Tres.Pantallas
 
         private void FormAddApointment_Load(object sender, EventArgs e)
         {
+            // 🔹 Cargar pacientes en el ComboBox
             Patient p = new Patient();
-            CmbSeleccionarPaciente.DataSource = p.Listar(); // usa tu método base
-            CmbSeleccionarPaciente.DisplayMember = "Name";  // nombre del paciente
-            CmbSeleccionarPaciente.ValueMember = "PatientId"; // id del paciente
+            CmbSeleccionarPaciente.DataSource = p.Listar(); // método que devuelve todos los pacientes
+            CmbSeleccionarPaciente.DisplayMember = "Name";
+            CmbSeleccionarPaciente.ValueMember = "PatientId";
+
+            // 🔹 Cargar horas base
+            comboBox1.DataSource = horasBase;
 
             if (EsEdicion)
             {
                 BtnAgendar.Text = "Actualizar Cita";
                 Appointment cita = new Appointment();
-                DataTable datos = cita.BuscarPorNombre(IdCita.ToString()); // usa tu método base
+                DataTable datos = cita.BuscarPorNombre(IdCita.ToString()); // método que devuelve la cita por ID
 
                 if (datos.Rows.Count > 0)
                 {
                     CmbSeleccionarPaciente.SelectedValue = datos.Rows[0]["PatientId"];
-                    maskedTextBox1.Text = datos.Rows[0]["Date"].ToString();
+                    maskedTextBox1.Text = Convert.ToDateTime(datos.Rows[0]["Date"]).ToString("dd/MM/yyyy");
                     comboBox1.Text = datos.Rows[0]["Time"].ToString();
                     txtrason.Text = datos.Rows[0]["Reason"].ToString();
                 }
+
+                // 🔹 Bloquear campos que no deben cambiar
+                CmbSeleccionarPaciente.Enabled = false;
+                txtrason.Enabled = false;
             }
             else
             {
                 BtnAgendar.Text = "Agendar Cita";
             }
         }
+        
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             FormMenuAdmin MenuAdmin = this.ParentForm as FormMenuAdmin;
@@ -81,77 +91,63 @@ namespace Semestre_Tres.Pantallas
 
         private void BtnAgendar_Click(object sender, EventArgs e)
         {
-
-            if (CmbSeleccionarPaciente.SelectedIndex == -1 ||
-    string.IsNullOrWhiteSpace(maskedTextBox1.Text) ||
-    comboBox1.SelectedIndex == -1)
+            DateTime fechaCita;
+            if (!DateTime.TryParseExact(maskedTextBox1.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out fechaCita))
             {
-                MessageBox.Show("Debe seleccionar paciente, fecha y hora antes de agendar la cita.");
+                MessageBox.Show("Por favor, ingrese una fecha válida en el formato dd/MM/yyyy.", "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             Appointment cita = new Appointment
             {
-                Date = DateTime.Parse(maskedTextBox1.Text),
-                Time = comboBox1.Text,   // 👈 aquí mejor usar string, no DateTime
+                Date = fechaCita,
+                Time = comboBox1.Text,
                 Reason = txtrason.Text,
                 Status = "Pendiente"
             };
+            cita.SetPatientById(Convert.ToInt32(CmbSeleccionarPaciente.SelectedValue));
 
-            if (EsEdicion)
+            AppointmentBusiness business = new AppointmentBusiness(cita);
+
+            try
             {
-                cita.AppointmentId = IdCita;
-                if (cita.Actualizar())
+                if (EsEdicion)
                 {
-                    MessageBox.Show("Cita actualizada correctamente.");
+                    cita.AppointmentId = IdCita;
+                    int result = business.UpdateAppointment();
+                    MessageBox.Show(result > 0 ? "Cita actualizada correctamente." : "Error al actualizar cita.");
                 }
                 else
                 {
-                    MessageBox.Show("Error al actualizar cita.");
+                    int result = business.AddAppointment();
+                    MessageBox.Show(result > 0 ? "Cita agregada correctamente." : "Error al agregar cita.");
                 }
+
+                // Volver al listado
+                FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+                menu?.AbrirFormulario(new FormAppointment());
             }
-            else
+            catch (Exception ex)
             {
-                if (cita.Agregar())
-                {
-                    MessageBox.Show("Cita agregada correctamente.");
-
-                    // 🔹 Aquí limpias los campos SOLO si fue nueva cita
-                    maskedTextBox1.Clear();
-                    comboBox1.SelectedIndex = -1;
-                    txtrason.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Error al agregar cita.");
-                }
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            // Volver al listado
-            FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-            menu.AbrirFormulario(new FormAppointment());
         }
+          
+        
 
        
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            if (DateTime.TryParse(maskedTextBox1.Text, out DateTime fechaSeleccionada))
-            {
-                Appointment cita = new Appointment();
-                DataTable citasDelDia = cita.BuscarPorFecha(fechaSeleccionada);
+            Appointment cita = new Appointment();
+            DataTable citasDelDia = cita.BuscarPorFecha(maskedTextBox1.Text);
 
-                var horasOcupadas = citasDelDia.AsEnumerable()
-                                               .Select(r => r["Time"].ToString())
-                                               .ToList();
+            var horasOcupadas = citasDelDia.AsEnumerable()
+                                           .Select(r => r["Time"].ToString())
+                                           .ToList();
 
-                var horasDisponibles = horasBase.Except(horasOcupadas).ToList();
-                comboBox1.DataSource = horasDisponibles;
-            }
-            else
-            {
-                MessageBox.Show("Ingrese una fecha válida en el formato correcto (dd/MM/yyyy).");
-            }
+            var horasDisponibles = horasBase.Except(horasOcupadas).ToList();
+            comboBox1.DataSource = horasDisponibles;
         }
     }
 }

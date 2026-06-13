@@ -19,7 +19,7 @@ namespace Semestre_Tres
             timer1.Stop();
             FormRol roles = new FormRol();
             roles.Show();
-            this.Dispose();
+            this.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

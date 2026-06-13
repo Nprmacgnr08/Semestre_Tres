@@ -80,6 +80,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 4;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox2
             // 
@@ -259,6 +260,7 @@
             btncancelar.TabIndex = 33;
             btncancelar.Text = "Cancelar";
             btncancelar.UseVisualStyleBackColor = true;
+            btncancelar.Click += btncancelar_Click;
             // 
             // btnguardar
             // 

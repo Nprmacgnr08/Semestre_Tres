@@ -16,46 +16,26 @@ namespace Semestre_Tres.Pantallas
         public FormLogin()
         {
             InitializeComponent();
+
         }
 
-        private void btnentrar_Click(object sender, EventArgs e)
+        private Dictionary<string, string> usuarios = new Dictionary<string, string>()
         {
-            string usuario = txtUser.Text.Trim().ToLower();
-            string clave = txtclave.Text.Trim();
+            { "Administrador@gmail.com", "Admin14" },
+            { "Medico@gmail.com", "medico77" },
+
+        };
 
 
-            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(clave))
-            {
-                MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            if (usuario == "Admin@gmail.com" && clave == "admin1234")
-            {
-                MessageBox.Show("¡Bienvenido, admin!", "Acceso Permitido",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormMenuAdmin menuAdmin = new FormMenuAdmin();
-                menuAdmin.Show();
-                this.Close();
-            }
-            else if (usuario == "Medico@gmail.com" && clave == "medico1234")
-            {
-                MessageBox.Show("¡Bienvenido, Médico!", "Acceso Permitido",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormMenuMedico menuMedico = new FormMenuMedico();
-                menuMedico.Show();
-                this.Close();
-            }
-            else 
-            {
-                MessageBox.Show("Usuario o contraseña incorrectos. Inténtalo de nuevo.");
-            }
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            txtclave.UseSystemPasswordChar = true;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-           if (checkBox1.Checked)
+
+            if (checkBox1.Checked)
             {
                 txtclave.UseSystemPasswordChar = false;
             }
@@ -65,19 +45,33 @@ namespace Semestre_Tres.Pantallas
             }
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void btnentrar_Click(object sender, EventArgs e)
         {
+            string correo = TxtUser.Text.Trim();
+            string codigo = txtclave.Text.Trim();
 
-        }
+            if (usuarios.ContainsKey(correo) && usuarios[correo] == codigo)
+            {
+                MessageBox.Show("Acceso concedido", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        private void txtUser_TextChanged(object sender, EventArgs e)
-        {
-            txtUser.ForeColor = Color.Black;
-        }
+                // Abrir menú según el rol
+                if (correo == "Administrador@gmail.com")
+                {
+                    FormMenuAdmin menuAdmin = new FormMenuAdmin();
+                    menuAdmin.Show();
+                }
+                else if (correo == "Medico@gmail.com")
+                {
+                    FormMenuMedico menuMedico = new FormMenuMedico();
+                    menuMedico.Show();
+                }
 
-        private void txtclave_TextChanged(object sender, EventArgs e)
-        {
-            txtclave.ForeColor = Color.Black;
+                this.Hide(); // Oculta el login
+            }
+            else
+            {
+                MessageBox.Show("Usuario o código incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

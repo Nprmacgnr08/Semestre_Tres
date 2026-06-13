@@ -1,4 +1,5 @@
-﻿using Semestre_Tres.Clases;
+﻿using Semestre_Tres.Bussines;
+using Semestre_Tres.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,13 +20,45 @@ namespace Semestre_Tres.Pantallas
         {
             InitializeComponent();
         }
+        private void FormAppointment_Load(object sender, EventArgs e)
+        {
+            CargarCitas();
+        }
+        private void CargarCitas()
+        {
+
+            Appointment cita = new Appointment();
+            AppointmentBusiness business = new AppointmentBusiness(cita);
+            DataTable dt = business.ListAll();
+
+            dataGridView1.DataSource = dt;
+            dataGridView1.Columns["AppointmentId"].Visible = false;
+            dataGridView1.Columns["Date"].HeaderText = "Fecha";
+            dataGridView1.Columns["Time"].HeaderText = "Hora";
+            dataGridView1.Columns["Reason"].HeaderText = "Motivo";
+            dataGridView1.Columns["Status"].HeaderText = "Estado";
+            dataGridView1.Columns["Paciente"].HeaderText = "Paciente";
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            string nombre = TxtBuscar.Text.Trim();
+            Appointment cita = new Appointment();
+            AppointmentBusiness business = new AppointmentBusiness(cita);
+            DataTable dt = business.SearchByPatientName(nombre);
+            dataGridView1.DataSource = dt;
+        }
 
         private void BtnCita_Click(object sender, EventArgs e)
         {
-            FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-            FormAddApointment frm = new FormAddApointment();
-            frm.EsEdicion = false;
-            menu.AbrirFormulario(frm);
+            FormAddApointment frm = new FormAddApointment
+            {
+                EsEdicion = false
+            };
+
+            FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+            menu?.AbrirFormulario(frm);
         }
 
         private void BtnActualizar_Click(object sender, EventArgs e)
@@ -33,23 +66,20 @@ namespace Semestre_Tres.Pantallas
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 int idCita = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["AppointmentId"].Value);
-                FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-                FormAddApointment frm = new FormAddApointment();
-                frm.EsEdicion = true;
-                frm.IdCita = idCita;
-                menu.AbrirFormulario(frm);
+
+                FormAddApointment frm = new FormAddApointment
+                {
+                    EsEdicion = true,
+                    IdCita = idCita
+                };
+
+                FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+                menu?.AbrirFormulario(frm);
             }
             else
             {
-                MessageBox.Show("Seleccione una cita para actualizar.");
+                MessageBox.Show("Seleccione una cita para actualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void FormAppointment_Load(object sender, EventArgs e)
-        {
-            // Al cargar el formulario, mostrar todas las citas
-            Appointment cita = new Appointment();
-            dataGridView1.DataSource = cita.Listar(); // usa tu método base
         }
 
         private void btneliminar_Click(object sender, EventArgs e)
@@ -57,63 +87,42 @@ namespace Semestre_Tres.Pantallas
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 int idCita = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["AppointmentId"].Value);
-                Appointment cita = new Appointment();
-                cita.AppointmentId = idCita;
 
-                if (cita.EliminarCita())
+                DialogResult confirm = MessageBox.Show("¿Desea eliminar esta cita?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
                 {
-                    MessageBox.Show("Cita eliminada correctamente.");
-                    dataGridView1.DataSource = cita.Listar(); // refresca el listado
-                }
-                else
-                {
-                    MessageBox.Show("Error al eliminar cita.");
+                    Appointment cita = new Appointment { AppointmentId = idCita };
+                    AppointmentBusiness business = new AppointmentBusiness(cita);
+
+                    try
+                    {
+                        int result = business.DeleteAppointment();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Cita eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CargarCitas();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo eliminar la cita.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione una cita para eliminar.");
+                MessageBox.Show("Seleccione una cita para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            string nombre = TxtBuscar.Text.Trim();
-
-            // Evitar que se ejecute cuando solo está el placeholder
-            if (string.IsNullOrWhiteSpace(nombre) || nombre == "Ingrese nombre del paciente")
-            {
-                Appointment cita = new Appointment();
-                dataGridView1.DataSource = cita.Listar(); // mostrar todas
-            }
-            else
-            {
-                Appointment cita = new Appointment();
-                dataGridView1.DataSource = cita.BuscarPorNombre(nombre);
-            }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-            string nombre = TxtBuscar.Text.Trim(); // TextBox donde escribes el nombre
-            Appointment cita = new Appointment();
-
-            if (string.IsNullOrWhiteSpace(nombre) || nombre == "Ingrese nombre del paciente")
-            {
-                // Si está vacío o solo tiene el placeholder, mostrar todas las citas
-                dataGridView1.DataSource = cita.Listar();
-            }
-            else
-            {
-                // Buscar por nombre del paciente
-                dataGridView1.DataSource = cita.BuscarPorNombre(nombre);
-            }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
     }
+
 }

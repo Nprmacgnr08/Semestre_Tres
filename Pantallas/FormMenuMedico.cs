@@ -12,15 +12,33 @@ namespace Semestre_Tres.Pantallas
 {
     public partial class FormMenuMedico : Form
     {
+
+        //Definir los colores para el efecto
+        Color colorNormal = Color.FromArgb(216, 225, 235); // Color original del panel
+        Color colorActivo = Color.FromArgb(127, 164, 201); // Color para el efecto de activación
         public FormMenuMedico()
         {
             InitializeComponent();
+            ActivarBoton(btndashboardmedi);
+            AbrirFormulario(new FormDashboard());
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void ActivarBoton(Button botonActivo)
         {
+            foreach (Button btn in panel1.Controls.OfType<Button>())
+            {
+                btn.BackColor = colorNormal;
+                btn.ForeColor = Color.Black;
+            }
 
+            botonActivo.BackColor = colorActivo;
+            botonActivo.ForeColor = Color.White;
         }
+        private void ActualizarHeader(string titulo, string subtitulo)
+        {
+            LblTitulo.Text = titulo;
+            LblSubtitulo.Text = subtitulo;
+        }
+
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -59,5 +77,60 @@ namespace Semestre_Tres.Pantallas
                 btncerrarsesion.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+
+        private void BotonMenuMedi(object sender, EventArgs e)
+        {
+            Button boton = (Button)sender;
+            ActivarBoton(boton);
+
+            switch (boton.Name)
+            {
+                case "btnDashboard":
+                    ActualizarHeader("Panel Médico", "Bienvenido al sistema de gestión de la clínica Dental Integral Guadalupe");
+                    AbrirFormulario(new FormDashboard());
+                    break;
+
+                case "btnConsultas":
+                    ActualizarHeader("Gestión de Consultas", "Administra las consultas médicas y diagnósticos");
+                    AbrirFormulario(new FormConsultas());
+                    break;
+
+                case "btnExpediente":
+                    ActualizarHeader("Expediente del Paciente", "Visualiza y actualiza los historiales clínicos");
+                    AbrirFormulario(new FormExpediente());
+                    break;
+
+                case "btnSalir":
+                    DialogResult resultado = MessageBox.Show(
+                        "¿Está seguro que desea cerrar sesión?",
+                        "Confirmar cierre de sesión",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        FormRol rol = new FormRol();
+                        rol.Show();
+                        this.Close();
+                    }
+                    break;
+            }
+        }
+             public void AbrirFormulario(Form formulario)
+        {
+            foreach (Form frm in pnlcontenedormedi.Controls.OfType<Form>())
+            {
+                frm.Close();
+            }
+
+            pnlcontenedormedi.Controls.Clear();
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            pnlcontenedormedi.Controls.Add(formulario);
+            formulario.Show();
+        }
     }
+    
 }

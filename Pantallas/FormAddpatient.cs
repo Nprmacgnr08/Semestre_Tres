@@ -1,4 +1,5 @@
-﻿using Semestre_Tres.Clases;
+﻿using Semestre_Tres.Bussines;
+using Semestre_Tres.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Semestre_Tres.Pantallas
 {
@@ -20,47 +22,77 @@ namespace Semestre_Tres.Pantallas
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-            menu.AbrirFormulario(new FormPaciente()); // vuelve al listado sin guardar
+            FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+            menu?.AbrirFormulario(new FormPaciente());
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
         {
+            // Validación de campos obligatorios
             if (string.IsNullOrWhiteSpace(txtname.Text) ||
-       string.IsNullOrWhiteSpace(txtLastname.Text) ||
-       string.IsNullOrWhiteSpace(mtbidcard.Text))
+                string.IsNullOrWhiteSpace(txtLastname.Text) ||
+                string.IsNullOrWhiteSpace(mtbidcard.Text))
             {
-                MessageBox.Show("Por favor, complete los campos obligatorios marcados con *.");
+                MessageBox.Show("Por favor, complete los campos obligatorios marcados con *.",
+                                "Campos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            Patient p = new Patient
+            // Validar fecha de nacimiento
+            if (!DateTime.TryParse(mtbbirthdate.Text, out DateTime birthDate))
             {
-                Name = txtname.Text,
-                Lastname = txtLastname.Text,
-                Phone = txtphone.Text,
-                Gmail = txtgmail.Text,
+                MessageBox.Show("La fecha de nacimiento no es válida.",
+                                "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Crear objeto paciente
+            Patient paciente = new Patient
+            {
+                Name = txtname.Text.Trim(),
+                Lastname = txtLastname.Text.Trim(),
+                Phone = txtphone.Text.Trim(),
+                Gmail = txtgmail.Text.Trim(),
                 Gender = comboxgander.Text,
-                BirthDate = DateTime.Parse(mtbbirthdate.Text),
-                Address = txtadrees.Text,
-                IdCard = mtbidcard.Text
+                BirthDate = birthDate,
+                Address = txtadrees.Text.Trim(),
+                IdCard = mtbidcard.Text.Trim(),
+
             };
 
-            if (p.Guardar())
+            // Guardar usando la capa de negocio
+            PatientBusiness business = new PatientBusiness(paciente);
+
+            try
             {
-                MessageBox.Show("Paciente agregado correctamente.");
-                FormMenuAdmin menu = (FormMenuAdmin)Application.OpenForms["FormMenuAdmin"];
-                menu.AbrirFormulario(new FormPaciente()); // refresca listado
+                int result = business.AddPatient();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Paciente agregado correctamente.",
+                                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Volver al listado dentro del panel contenedor
+                    FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+                    menu?.AbrirFormulario(new FormPaciente());
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al agregar paciente.");
+                MessageBox.Show(ex.Message, "Error al agregar paciente", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void mtbidcard_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+            menu?.AbrirFormulario(new FormTratamiento());
         }
     }
 

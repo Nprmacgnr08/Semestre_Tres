@@ -70,6 +70,7 @@
             btntratamiento.Text = "Nuevo Tratamiento";
             btntratamiento.TextAlign = ContentAlignment.MiddleRight;
             btntratamiento.UseVisualStyleBackColor = false;
+            btntratamiento.Click += btntratamiento_Click;
             // 
             // pictureBox2
             // 
@@ -81,6 +82,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // BtnCita
             // 
@@ -122,12 +124,12 @@
             // flpTratamiento
             // 
             flpTratamiento.AutoScroll = true;
-            flpTratamiento.BackColor = SystemColors.ControlLightLight;
+            flpTratamiento.BackColor = Color.WhiteSmoke;
             flpTratamiento.CausesValidation = false;
             flpTratamiento.Dock = DockStyle.Fill;
             flpTratamiento.Location = new Point(0, 90);
             flpTratamiento.Name = "flpTratamiento";
-            flpTratamiento.Padding = new Padding(20);
+            flpTratamiento.Padding = new Padding(10);
             flpTratamiento.Size = new Size(800, 360);
             flpTratamiento.TabIndex = 2;
             // 

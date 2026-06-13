@@ -195,6 +195,29 @@ namespace Semestre_Tres.Clases
             }
             return dt;
         }
+        public static DataTable ListarPacientes()
+        {
+            string sql = "SELECT PatientId, Name FROM Patient ORDER BY Name";
+            using SelectQuery select = new SelectQuery();
+            DataTable dt = new DataTable();
+            using (SqlDataReader reader = select.ExecuteSelect(sql, Array.Empty<SqlParameter>()))
+            {
+                dt.Load(reader);
+            }
+            return dt;
+        }
+
+        public static DataTable ListarTratamientos()
+        {
+            string sql = "SELECT TreatmentId, Name FROM Treatment ORDER BY Name";
+            using SelectQuery select = new SelectQuery();
+            DataTable dt = new DataTable();
+            using (SqlDataReader reader = select.ExecuteSelect(sql, Array.Empty<SqlParameter>()))
+            {
+                dt.Load(reader);
+            }
+            return dt;
+        }
 
         // Listar todos los expedientes
         public DataTable Listar()

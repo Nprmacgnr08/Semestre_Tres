@@ -165,6 +165,24 @@ namespace Semestre_Tres.Clases
             }
             return dt;
         }
+        public DataTable BuscarPorId(int idTratamiento)
+        {
+            string sql = @"SELECT TreatmentId, Name, Cost, Description
+                   FROM Treatment
+                   WHERE TreatmentId = @IdTratamiento";
+
+            SqlParameter[] parameters = { new SqlParameter("@IdTratamiento", SqlDbType.Int) { Value = idTratamiento } };
+
+            using SelectQuery select = new SelectQuery();
+            DataTable result = new DataTable();
+
+            using (SqlDataReader reader = select.ExecuteSelect(sql, parameters))
+            {
+                result.Load(reader);
+            }
+
+            return result;
+        }
 
         // Obtener tratamiento por id
         public Treatment GetTreatmentById(int id)

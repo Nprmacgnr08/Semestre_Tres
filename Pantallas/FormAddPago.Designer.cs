@@ -39,7 +39,7 @@
             label5 = new Label();
             label4 = new Label();
             TxtMonto = new TextBox();
-            this.cmbmoneda = new ComboBox();
+            cmbmoneda = new ComboBox();
             label6 = new Label();
             cmbmetodo = new ComboBox();
             panel2 = new Panel();
@@ -161,7 +161,7 @@
             tableLayoutPanel2.Controls.Add(label5, 1, 0);
             tableLayoutPanel2.Controls.Add(label4, 0, 0);
             tableLayoutPanel2.Controls.Add(TxtMonto, 0, 1);
-            tableLayoutPanel2.Controls.Add(this.cmbmoneda, 1, 1);
+            tableLayoutPanel2.Controls.Add(cmbmoneda, 1, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(49, 135);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -202,13 +202,14 @@
             // 
             // cmbmoneda
             // 
-            this.cmbmoneda.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            this.cmbmoneda.FormattingEnabled = true;
-            this.cmbmoneda.Items.AddRange(new object[] { "Córdobas", "Dólares" });
-            this.cmbmoneda.Location = new Point(289, 29);
-            this.cmbmoneda.Name = "cmbmoneda";
-            this.cmbmoneda.Size = new Size(195, 28);
-            this.cmbmoneda.TabIndex = 6;
+            cmbmoneda.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbmoneda.FormattingEnabled = true;
+            cmbmoneda.Items.AddRange(new object[] { "Córdobas", "Dólares" });
+            cmbmoneda.Location = new Point(289, 29);
+            cmbmoneda.Name = "cmbmoneda";
+            cmbmoneda.Size = new Size(195, 28);
+            cmbmoneda.TabIndex = 6;
+            cmbmoneda.SelectedIndexChanged += cmbmoneda_SelectedIndexChanged;
             // 
             // label6
             // 
@@ -251,6 +252,7 @@
             btnGuardar.TabIndex = 1;
             btnGuardar.Text = "Guardar Pago";
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btncancelar
             // 
@@ -270,6 +272,7 @@
             cmbtratamiento.Name = "cmbtratamiento";
             cmbtratamiento.Size = new Size(306, 28);
             cmbtratamiento.TabIndex = 8;
+            cmbtratamiento.SelectedIndexChanged += cmbtratamiento_SelectedIndexChanged;
             // 
             // cmbpaciente
             // 

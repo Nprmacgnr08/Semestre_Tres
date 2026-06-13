@@ -36,10 +36,13 @@
             btndashboardmedi = new Button();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            LblSubtitulo = new Label();
+            LblTitulo = new Label();
             pnlcontenedormedi = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -56,7 +59,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(220, 450);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
             // 
             // pictureBox2
             // 
@@ -99,6 +101,7 @@
             btnexpediente.TabIndex = 3;
             btnexpediente.Text = "Expediente";
             btnexpediente.UseVisualStyleBackColor = true;
+            btnexpediente.Click += BotonMenuMedi;
             // 
             // btnconsultas
             // 
@@ -114,6 +117,7 @@
             btnconsultas.TabIndex = 2;
             btnconsultas.Text = "Consultas";
             btnconsultas.UseVisualStyleBackColor = true;
+            btnconsultas.Click += BotonMenuMedi;
             // 
             // btndashboardmedi
             // 
@@ -129,6 +133,7 @@
             btndashboardmedi.TabIndex = 1;
             btndashboardmedi.Text = "DashBoard";
             btndashboardmedi.UseVisualStyleBackColor = true;
+            btndashboardmedi.Click += BotonMenuMedi;
             // 
             // pictureBox1
             // 
@@ -144,11 +149,32 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(216, 225, 235);
+            panel2.Controls.Add(LblSubtitulo);
+            panel2.Controls.Add(LblTitulo);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(220, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(580, 100);
             panel2.TabIndex = 1;
+            // 
+            // LblSubtitulo
+            // 
+            LblSubtitulo.AutoSize = true;
+            LblSubtitulo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LblSubtitulo.Location = new Point(50, 68);
+            LblSubtitulo.Name = "LblSubtitulo";
+            LblSubtitulo.Size = new Size(0, 20);
+            LblSubtitulo.TabIndex = 2;
+            LblSubtitulo.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // LblTitulo
+            // 
+            LblTitulo.AutoSize = true;
+            LblTitulo.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblTitulo.Location = new Point(50, 19);
+            LblTitulo.Name = "LblTitulo";
+            LblTitulo.Size = new Size(0, 32);
+            LblTitulo.TabIndex = 1;
             // 
             // pnlcontenedormedi
             // 
@@ -174,6 +200,8 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -188,5 +216,7 @@
         private Button btnconsultas;
         private Button btndashboardmedi;
         private PictureBox pictureBox2;
+        private Label LblTitulo;
+        private Label LblSubtitulo;
     }
 }
