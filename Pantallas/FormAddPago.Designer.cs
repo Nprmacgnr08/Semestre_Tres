@@ -321,7 +321,7 @@
         private Label label4;
         private TextBox TxtMonto;
         private ComboBox cmbmoneda;
-        private ComboBox comboBox1;
+     
         private Label label6;
         private ComboBox cmbmetodo;
         private Panel panel2;
