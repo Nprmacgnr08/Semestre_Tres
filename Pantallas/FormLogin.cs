@@ -73,5 +73,7 @@ namespace Semestre_Tres.Pantallas
                 MessageBox.Show("Usuario o código incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+      
     }
 }

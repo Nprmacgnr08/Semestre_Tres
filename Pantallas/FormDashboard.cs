@@ -43,5 +43,9 @@ namespace Semestre_Tres.Pantallas
             lblver.ForeColor = Color.Black; // vuelve al color normal
         }
 
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

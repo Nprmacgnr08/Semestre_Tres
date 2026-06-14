@@ -85,22 +85,22 @@ namespace Semestre_Tres.Pantallas
 
             switch (boton.Name)
             {
-                case "btnDashboard":
+                case "btndashboardmedi":
                     ActualizarHeader("Panel Médico", "Bienvenido al sistema de gestión de la clínica Dental Integral Guadalupe");
                     AbrirFormulario(new FormDashboard());
                     break;
 
-                case "btnConsultas":
+                case "btnconsultas":
                     ActualizarHeader("Gestión de Consultas", "Administra las consultas médicas y diagnósticos");
                     AbrirFormulario(new FormConsultas());
                     break;
 
-                case "btnExpediente":
+                case "btnexpediente":
                     ActualizarHeader("Expediente del Paciente", "Visualiza y actualiza los historiales clínicos");
                     AbrirFormulario(new FormExpediente());
                     break;
 
-                case "btnSalir":
+                case "btncerrarsesion":
                     DialogResult resultado = MessageBox.Show(
                         "¿Está seguro que desea cerrar sesión?",
                         "Confirmar cierre de sesión",
@@ -119,10 +119,12 @@ namespace Semestre_Tres.Pantallas
         }
              public void AbrirFormulario(Form formulario)
         {
+         
             foreach (Form frm in pnlcontenedormedi.Controls.OfType<Form>())
             {
                 frm.Close();
             }
+
 
             pnlcontenedormedi.Controls.Clear();
             formulario.TopLevel = false;
