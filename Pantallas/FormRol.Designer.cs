@@ -49,13 +49,14 @@
             tableLayoutPanel1.Controls.Add(label1, 0, 3);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 49.02439F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50.97561F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
-            tableLayoutPanel1.Size = new Size(800, 450);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 55.76923F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 44.23077F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 11F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 68F));
+            tableLayoutPanel1.Size = new Size(1032, 600);
             tableLayoutPanel1.TabIndex = 0;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -63,9 +64,10 @@
             // 
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = Properties.Resources.Clinica_Dental_Integral_Guadalupe_Logo;
-            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Location = new Point(3, 4);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(794, 185);
+            pictureBox1.Size = new Size(1026, 282);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -74,19 +76,21 @@
             // 
             tableLayoutPanel2.ColumnCount = 5;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.0403023F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 24.4332485F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.3501263F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.9551659F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.861599F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.00195F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.446394F));
             tableLayoutPanel2.Controls.Add(btnmedico, 1, 0);
             tableLayoutPanel2.Controls.Add(btnadmin, 3, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 194);
+            tableLayoutPanel2.Location = new Point(3, 294);
+            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(794, 193);
+            tableLayoutPanel2.Size = new Size(1026, 222);
             tableLayoutPanel2.TabIndex = 1;
+            tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
             // btnmedico
             // 
@@ -96,9 +100,10 @@
             btnmedico.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnmedico.Image = Properties.Resources.Doctor_Female_icon_icons_com_75050;
             btnmedico.ImageAlign = ContentAlignment.TopCenter;
-            btnmedico.Location = new Point(178, 3);
+            btnmedico.Location = new Point(228, 4);
+            btnmedico.Margin = new Padding(3, 4, 3, 4);
             btnmedico.Name = "btnmedico";
-            btnmedico.Size = new Size(188, 187);
+            btnmedico.Size = new Size(208, 214);
             btnmedico.TabIndex = 0;
             btnmedico.Text = "Médico";
             btnmedico.TextAlign = ContentAlignment.BottomCenter;
@@ -113,9 +118,10 @@
             btnadmin.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnadmin.Image = Properties.Resources.admin_person_user_man_2839;
             btnadmin.ImageAlign = ContentAlignment.TopCenter;
-            btnadmin.Location = new Point(478, 3);
+            btnadmin.Location = new Point(614, 4);
+            btnadmin.Margin = new Padding(3, 4, 3, 4);
             btnadmin.Name = "btnadmin";
-            btnadmin.Size = new Size(192, 187);
+            btnadmin.Size = new Size(219, 214);
             btnadmin.TabIndex = 1;
             btnadmin.Text = "Administrador";
             btnadmin.TextAlign = ContentAlignment.BottomCenter;
@@ -127,21 +133,22 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(289, 415);
+            label1.Location = new Point(371, 554);
             label1.Name = "label1";
-            label1.Size = new Size(222, 17);
+            label1.Size = new Size(290, 23);
             label1.TabIndex = 2;
             label1.Text = "Seleccione su rol para entrar al sistema";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormRol
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(216, 225, 235);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1032, 600);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormRol";
             Text = "FormRol";
             WindowState = FormWindowState.Maximized;

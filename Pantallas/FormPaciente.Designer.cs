@@ -55,8 +55,9 @@
             panel1.Controls.Add(textBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 68);
+            panel1.Size = new Size(1039, 91);
             panel1.TabIndex = 0;
             // 
             // btnagregar
@@ -68,9 +69,10 @@
             btnagregar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnagregar.Image = Properties.Resources._269362_plus_icon;
             btnagregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnagregar.Location = new Point(564, 17);
+            btnagregar.Location = new Point(770, 23);
+            btnagregar.Margin = new Padding(5);
             btnagregar.Name = "btnagregar";
-            btnagregar.Size = new Size(211, 38);
+            btnagregar.Size = new Size(241, 51);
             btnagregar.TabIndex = 2;
             btnagregar.Text = "Nuevo Paciente";
             btnagregar.UseVisualStyleBackColor = false;
@@ -80,9 +82,10 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.magnifying_glass_search_icon_208829;
-            pictureBox1.Location = new Point(491, 20);
+            pictureBox1.Location = new Point(614, 27);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(35, 35);
+            pictureBox1.Size = new Size(49, 47);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -92,10 +95,11 @@
             // 
             textBox1.Cursor = Cursors.IBeam;
             textBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(24, 20);
+            textBox1.Location = new Point(27, 27);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Buscar por cédula";
-            textBox1.Size = new Size(509, 35);
+            textBox1.Size = new Size(581, 42);
             textBox1.TabIndex = 0;
             // 
             // panel2
@@ -105,9 +109,10 @@
             panel2.Controls.Add(BtnVer);
             panel2.Controls.Add(dtgpaciente);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 68);
+            panel2.Location = new Point(0, 91);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 382);
+            panel2.Size = new Size(1039, 509);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -116,9 +121,10 @@
             btnEliminar.BackColor = SystemColors.ActiveCaption;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEliminar.Location = new Point(616, 223);
+            btnEliminar.Location = new Point(848, 345);
+            btnEliminar.Margin = new Padding(0, 0, 0, 0);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(100, 40);
+            btnEliminar.Size = new Size(114, 53);
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -129,9 +135,10 @@
             btneditar.BackColor = SystemColors.ActiveCaption;
             btneditar.FlatStyle = FlatStyle.Flat;
             btneditar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btneditar.Location = new Point(616, 128);
+            btneditar.Location = new Point(848, 195);
+            btneditar.Margin = new Padding(5);
             btneditar.Name = "btneditar";
-            btneditar.Size = new Size(100, 40);
+            btneditar.Size = new Size(114, 53);
             btneditar.TabIndex = 2;
             btneditar.Text = "Editar";
             btneditar.UseVisualStyleBackColor = false;
@@ -139,12 +146,14 @@
             // 
             // BtnVer
             // 
+            BtnVer.Anchor = AnchorStyles.Right;
             BtnVer.BackColor = SystemColors.ActiveCaption;
             BtnVer.FlatStyle = FlatStyle.Flat;
             BtnVer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BtnVer.Location = new Point(616, 38);
+            BtnVer.Location = new Point(848, 46);
+            BtnVer.Margin = new Padding(5);
             BtnVer.Name = "BtnVer";
-            BtnVer.Size = new Size(100, 40);
+            BtnVer.Size = new Size(114, 53);
             BtnVer.TabIndex = 1;
             BtnVer.Text = "Ver";
             BtnVer.UseVisualStyleBackColor = false;
@@ -158,18 +167,21 @@
             dtgpaciente.BorderStyle = BorderStyle.None;
             dtgpaciente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgpaciente.Columns.AddRange(new DataGridViewColumn[] { ColID, ColName, ColIdCard, ColPhone, ColBirthdate });
-            dtgpaciente.Location = new Point(24, 28);
+            dtgpaciente.Location = new Point(51, 35);
+            dtgpaciente.Margin = new Padding(10);
             dtgpaciente.Name = "dtgpaciente";
             dtgpaciente.ReadOnly = true;
             dtgpaciente.RowHeadersVisible = false;
+            dtgpaciente.RowHeadersWidth = 51;
             dtgpaciente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgpaciente.Size = new Size(456, 306);
+            dtgpaciente.Size = new Size(557, 408);
             dtgpaciente.TabIndex = 0;
             // 
             // ColID
             // 
             ColID.FillWeight = 50F;
             ColID.HeaderText = "Id";
+            ColID.MinimumWidth = 6;
             ColID.Name = "ColID";
             ColID.ReadOnly = true;
             ColID.Width = 50;
@@ -177,35 +189,44 @@
             // ColName
             // 
             ColName.HeaderText = "Nombre";
+            ColName.MinimumWidth = 6;
             ColName.Name = "ColName";
             ColName.ReadOnly = true;
+            ColName.Width = 125;
             // 
             // ColIdCard
             // 
             ColIdCard.HeaderText = "Cédula";
+            ColIdCard.MinimumWidth = 6;
             ColIdCard.Name = "ColIdCard";
             ColIdCard.ReadOnly = true;
+            ColIdCard.Width = 125;
             // 
             // ColPhone
             // 
             ColPhone.HeaderText = "Teléfono";
+            ColPhone.MinimumWidth = 6;
             ColPhone.Name = "ColPhone";
             ColPhone.ReadOnly = true;
+            ColPhone.Width = 125;
             // 
             // ColBirthdate
             // 
             ColBirthdate.HeaderText = "Nacimiento";
+            ColBirthdate.MinimumWidth = 6;
             ColBirthdate.Name = "ColBirthdate";
             ColBirthdate.ReadOnly = true;
+            ColBirthdate.Width = 125;
             // 
             // FormPaciente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1039, 600);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormPaciente";
             Text = "FormPaciente";
             panel1.ResumeLayout(false);
