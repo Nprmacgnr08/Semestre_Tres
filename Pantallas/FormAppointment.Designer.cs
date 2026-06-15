@@ -48,8 +48,9 @@
             panel1.Controls.Add(TxtBuscar);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 90);
+            panel1.Size = new Size(1032, 120);
             panel1.TabIndex = 0;
             // 
             // BtnCita
@@ -61,9 +62,10 @@
             BtnCita.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BtnCita.Image = Properties.Resources._269362_plus_icon;
             BtnCita.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnCita.Location = new Point(559, 39);
+            BtnCita.Location = new Point(760, 39);
+            BtnCita.Margin = new Padding(3, 4, 3, 4);
             BtnCita.Name = "BtnCita";
-            BtnCita.Size = new Size(211, 38);
+            BtnCita.Size = new Size(241, 51);
             BtnCita.TabIndex = 3;
             BtnCita.Text = "Nueva Cita";
             BtnCita.UseVisualStyleBackColor = false;
@@ -73,9 +75,10 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.magnifying_glass_search_icon_208829;
-            pictureBox1.Location = new Point(499, 39);
+            pictureBox1.Location = new Point(688, 43);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(35, 35);
+            pictureBox1.Size = new Size(40, 47);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -85,10 +88,11 @@
             // 
             TxtBuscar.Cursor = Cursors.IBeam;
             TxtBuscar.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TxtBuscar.Location = new Point(25, 39);
+            TxtBuscar.Location = new Point(29, 42);
+            TxtBuscar.Margin = new Padding(3, 4, 3, 4);
             TxtBuscar.Name = "TxtBuscar";
             TxtBuscar.PlaceholderText = "Buscar por nombre";
-            TxtBuscar.Size = new Size(509, 35);
+            TxtBuscar.Size = new Size(638, 42);
             TxtBuscar.TabIndex = 1;
             TxtBuscar.TextChanged += TxtBuscar_TextChanged;
             // 
@@ -96,9 +100,11 @@
             // 
             dataGridView1.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(25, 129);
+            dataGridView1.Location = new Point(29, 172);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(498, 277);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(699, 369);
             dataGridView1.TabIndex = 1;
             // 
             // BtnActualizar
@@ -109,9 +115,10 @@
             BtnActualizar.FlatStyle = FlatStyle.Flat;
             BtnActualizar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BtnActualizar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnActualizar.Location = new Point(590, 147);
+            BtnActualizar.Location = new Point(792, 196);
+            BtnActualizar.Margin = new Padding(3, 4, 3, 4);
             BtnActualizar.Name = "BtnActualizar";
-            BtnActualizar.Size = new Size(138, 38);
+            BtnActualizar.Size = new Size(158, 51);
             BtnActualizar.TabIndex = 4;
             BtnActualizar.Text = "Actualizar";
             BtnActualizar.UseVisualStyleBackColor = false;
@@ -125,9 +132,10 @@
             btneliminar.FlatStyle = FlatStyle.Flat;
             btneliminar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btneliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btneliminar.Location = new Point(590, 237);
+            btneliminar.Location = new Point(792, 316);
+            btneliminar.Margin = new Padding(3, 4, 3, 4);
             btneliminar.Name = "btneliminar";
-            btneliminar.Size = new Size(138, 38);
+            btneliminar.Size = new Size(158, 51);
             btneliminar.TabIndex = 5;
             btneliminar.Text = "Eliminar";
             btneliminar.UseVisualStyleBackColor = false;
@@ -135,14 +143,15 @@
             // 
             // FormAppointment
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1032, 600);
             Controls.Add(btneliminar);
             Controls.Add(BtnActualizar);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormAppointment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormAppointment";

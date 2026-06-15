@@ -1,14 +1,10 @@
 ﻿using Microsoft.Data.SqlClient;
 using Semestre_Tres.Persistence;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 
 namespace Semestre_Tres.Clases
 {
-  
+
     public class Patient
     {
         #region Properties

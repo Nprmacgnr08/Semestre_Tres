@@ -1,14 +1,5 @@
 ﻿using Semestre_Tres.Bussines;
 using Semestre_Tres.Clases;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Semestre_Tres.Pantallas
 {
@@ -18,7 +9,7 @@ namespace Semestre_Tres.Pantallas
         public FormDetallePatient(int IdPatient)
         {
             InitializeComponent();
-           _patientId = IdPatient;
+            _patientId = IdPatient;
         }
 
         private void FormDetallePatient_Load(object sender, EventArgs e)

@@ -1,31 +1,22 @@
 ﻿using Microsoft.Data.SqlClient;
-using Microsoft.VisualBasic;
 using Semestre_Tres.Persistence;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 
 namespace Semestre_Tres.Clases
 {
     internal class Appointment
     {
-         // Encapsular atributo de navegación para la propiedad Patient
+        // Encapsular atributo de navegación para la propiedad Patient
         private Patient? _patient;
         private int _patientId; // Guardamos el ID oculto, con el que se maneja en la base de datos
 
-    #region Properties
-    /* -- ---------------------------------------------------------------- -- */
-    /*      Definición de propiedades para la clase Appointment.             */
-    /* -- ---------------------------------------------------------------- -- */
-    public int AppointmentId { get; set; }
-    public DateTime Date { get; set; }
+        #region Properties
+        /* -- ---------------------------------------------------------------- -- */
+        /*      Definición de propiedades para la clase Appointment.             */
+        /* -- ---------------------------------------------------------------- -- */
+        public int AppointmentId { get; set; }
+        public DateTime Date { get; set; }
         public string Time { get; set; } = string.Empty;
         public string Reason { get; set; } = string.Empty;
         public string Status { get; set; } = string.Empty;
@@ -33,9 +24,9 @@ namespace Semestre_Tres.Clases
 
         // Establecer la propiedad de navegación para el paciente asociado a esta cita.
         public Patient PatientId
-    {
-        get
         {
+            get
+            {
                 // Cuando se pide la propiedad y no se ha cargado de la base de datos, se carga automáticamente
                 if (_patient == null && _patientId > 0)
                 {
@@ -48,81 +39,81 @@ namespace Semestre_Tres.Clases
             }//end-get
 
             set
-        {
-            _patient = value;
-            if (value != null)
             {
-                _patientId = value.PatientId;
+                _patient = value;
+                if (value != null)
+                {
+                    _patientId = value.PatientId;
+                }
             }
+        }//end-Patient
+        #endregion
+
+        #region Constructors
+        /* -- ---------------------------------------------------------------- -- */
+        /*      Constructores de la clase Appointment.                           */
+        /* -- ---------------------------------------------------------------- -- */
+
+        public Appointment()
+        {
+            AppointmentId = 0;
+            Date = DateTime.MinValue;
+            Time = string.Empty;
+            Reason = string.Empty;
+            Status = string.Empty;
         }
-    }//end-Patient
-    #endregion
 
-    #region Constructors
-    /* -- ---------------------------------------------------------------- -- */
-    /*      Constructores de la clase Appointment.                           */
-    /* -- ---------------------------------------------------------------- -- */
+        // Constructor para mapear con la base de datos
+        public Appointment(int patientId)
+        {
+            _patientId = patientId;
+        }
 
-    public Appointment()
-    {
-        AppointmentId = 0;
-        Date = DateTime.MinValue;
-        Time = string.Empty;
-        Reason = string.Empty;
-        Status = string.Empty;
-    }
+        // Constructor con parámetros
+        public Appointment(int appointmentId, DateTime date, string time, string reason, string status)
+        {
+            AppointmentId = appointmentId;
+            Date = date;
+            Time = time;
+            Reason = reason;
+            Status = status;
+        }
+        #endregion
 
-    // Constructor para mapear con la base de datos
-    public Appointment(int patientId)
-    {
-        _patientId = patientId;
-    }
+        #region Methods
+        /* -- ---------------------------------------------------------------- -- */
+        /*              Métodos de operación en la base de datos.                 */
+        /* -- ---------------------------------------------------------------- -- */
 
-    // Constructor con parámetros
-    public Appointment(int appointmentId, DateTime date, string time, string reason, string status)
-    {
-        AppointmentId = appointmentId;
-        Date = date;
-        Time = time;
-        Reason = reason;
-        Status = status;
-    }
-    #endregion
-
-    #region Methods
-    /* -- ---------------------------------------------------------------- -- */
-    /*              Métodos de operación en la base de datos.                 */
-    /* -- ---------------------------------------------------------------- -- */
-
-    public bool IsDuplicateAppointment(DateTime date, string time)
-    {
-        // Verificar si existe una cita en la misma fecha y hora
-        string sql = @"SELECT CASE
+        public bool IsDuplicateAppointment(DateTime date, string time)
+        {
+            // Verificar si existe una cita en la misma fecha y hora
+            string sql = @"SELECT CASE
                                  WHEN EXISTS(
                                       SELECT 1
                                       FROM Appointment 
                                       WHERE Date = @Date AND Time = @Time)
                                       THEN 1 ELSE 0 END";
-        using SelectQuery select = new SelectQuery();
-        SqlParameter[] parametros = {
+            using SelectQuery select = new SelectQuery();
+            SqlParameter[] parametros = {
                 new SqlParameter("@Date", SqlDbType.DateTime) { Value = date },
                 new SqlParameter("@Time", SqlDbType.VarChar, 10) { Value = time }
             };
-        return select.IsDuplicate(sql, parametros);
-    }
+            return select.IsDuplicate(sql, parametros);
+        }
 
-    public int InsertAppointment()
-    {
-        int rows = 0;
-        try
+        public int InsertAppointment()
         {
-            using InsertCommand insert = new InsertCommand();
+            int rows = 0;
+            try
+            {
+                using InsertCommand insert = new InsertCommand();
 
-            string sql = @"INSERT INTO Appointment (IdPatient, Date, Time, Reason, Status)
+                string sql = @"INSERT INTO Appointment (IdPatient, Date, Time, Reason, Status)
                                VALUES (@IdPatient, @Date, @Time, @Reason, @Status)";
 
-            SqlParameter[] parameters =
-            {
+                SqlParameter[] parameters =
+                {
                     new SqlParameter("@IdPatient", SqlDbType.Int) { Value = this.PatientId.PatientId },
                     new SqlParameter("@Date", SqlDbType.DateTime) { Value = this.Date },
                     new SqlParameter("@Time", SqlDbType.VarChar, 10) { Value = this.Time },
@@ -130,17 +121,17 @@ namespace Semestre_Tres.Clases
                     new SqlParameter("@Status", SqlDbType.VarChar, 20) { Value = this.Status }
                 };
 
-            rows = insert.ExecuteInsert(sql, parameters);
-        }
-        catch (Exception ex)
-        {
-            throw new Exception("Error al agregar la cita.", ex);
-        }
+                rows = insert.ExecuteInsert(sql, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al agregar la cita.", ex);
+            }
 
-        return rows;
-    }
-    public int UpdateAppointment()
-    {
+            return rows;
+        }
+        public int UpdateAppointment()
+        {
             using UpdateCommand update = new UpdateCommand();
             string sql = @"UPDATE Appointment 
                            SET IdPatient=@IdPatient, Date=@Date, Time=@Time, Reason=@Reason, Status=@Status 
@@ -157,8 +148,8 @@ namespace Semestre_Tres.Clases
             };
 
             return update.ExecuteUpdate(sql, parameters);
-    }
-    public int DeleteAppointment()
+        }
+        public int DeleteAppointment()
         {
             using DeleteCommand delete = new DeleteCommand();
             string sql = "DELETE FROM Appointment WHERE AppointmentId=@AppointmentId";

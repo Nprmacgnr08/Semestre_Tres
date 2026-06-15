@@ -1,10 +1,5 @@
 ﻿using Semestre_Tres.Clases;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Semestre_Tres.Bussines
 {
@@ -35,7 +30,7 @@ namespace Semestre_Tres.Bussines
             return _consultation.InsertConsultation();
         }
 
-     
+
 
         // Eliminar consulta
         public int DeleteConsultation()

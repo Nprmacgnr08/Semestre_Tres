@@ -59,17 +59,19 @@
             panel1.Dock = DockStyle.Top;
             panel1.ForeColor = SystemColors.ActiveCaption;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(680, 74);
+            panel1.Size = new Size(1030, 99);
             panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.x_icon_150997;
-            pictureBox1.Location = new Point(595, 24);
+            pictureBox1.Location = new Point(933, 32);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(35, 35);
+            pictureBox1.Size = new Size(40, 47);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -78,11 +80,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(270, 24);
+            label1.Location = new Point(399, 25);
             label1.Name = "label1";
-            label1.Size = new Size(138, 32);
+            label1.Size = new Size(219, 54);
             label1.TabIndex = 0;
             label1.Text = "Nueva Cita";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -90,10 +92,10 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 280F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 289F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 51F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 69F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 430F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 9F));
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(panel2, 1, 1);
             tableLayoutPanel1.Controls.Add(label4, 1, 2);
@@ -105,18 +107,19 @@
             tableLayoutPanel1.Controls.Add(BtnAgendar, 2, 7);
             tableLayoutPanel1.Controls.Add(btnCancelar, 1, 7);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 74);
+            tableLayoutPanel1.Location = new Point(0, 99);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 8;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 53F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 87F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 24F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(680, 326);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 53F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 116F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
+            tableLayoutPanel1.Size = new Size(1030, 498);
             tableLayoutPanel1.TabIndex = 1;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -125,9 +128,9 @@
             label2.AutoSize = true;
             tableLayoutPanel1.SetColumnSpan(label2, 3);
             label2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(63, 0);
+            label2.Location = new Point(72, 0);
             label2.Name = "label2";
-            label2.Size = new Size(92, 25);
+            label2.Size = new Size(116, 32);
             label2.TabIndex = 0;
             label2.Text = "Paciente*";
             // 
@@ -136,27 +139,30 @@
             tableLayoutPanel1.SetColumnSpan(panel2, 2);
             panel2.Controls.Add(CmbSeleccionarPaciente);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(63, 33);
+            panel2.Location = new Point(72, 44);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(563, 34);
+            panel2.Size = new Size(854, 45);
             panel2.TabIndex = 1;
             // 
             // CmbSeleccionarPaciente
             // 
             CmbSeleccionarPaciente.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CmbSeleccionarPaciente.FormattingEnabled = true;
-            CmbSeleccionarPaciente.Location = new Point(100, 1);
+            CmbSeleccionarPaciente.Location = new Point(0, 5);
+            CmbSeleccionarPaciente.Margin = new Padding(3, 4, 3, 4);
             CmbSeleccionarPaciente.Name = "CmbSeleccionarPaciente";
-            CmbSeleccionarPaciente.Size = new Size(331, 33);
+            CmbSeleccionarPaciente.Size = new Size(378, 40);
             CmbSeleccionarPaciente.TabIndex = 0;
+            CmbSeleccionarPaciente.SelectedIndexChanged += CmbSeleccionarPaciente_SelectedIndexChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(63, 70);
+            label4.Location = new Point(72, 93);
             label4.Name = "label4";
-            label4.Size = new Size(70, 25);
+            label4.Size = new Size(87, 32);
             label4.TabIndex = 1;
             label4.Text = "Fecha*";
             // 
@@ -164,19 +170,20 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(343, 70);
+            label3.Location = new Point(502, 93);
             label3.Name = "label3";
-            label3.Size = new Size(62, 25);
+            label3.Size = new Size(78, 32);
             label3.TabIndex = 4;
             label3.Text = "Hora*";
             // 
             // maskedTextBox1
             // 
             maskedTextBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox1.Location = new Point(63, 103);
+            maskedTextBox1.Location = new Point(72, 137);
+            maskedTextBox1.Margin = new Padding(3, 4, 3, 4);
             maskedTextBox1.Mask = "00/00/0000";
             maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(220, 27);
+            maskedTextBox1.Size = new Size(251, 32);
             maskedTextBox1.TabIndex = 5;
             maskedTextBox1.ValidatingType = typeof(DateTime);
             maskedTextBox1.MaskInputRejected += maskedTextBox1_MaskInputRejected;
@@ -185,9 +192,10 @@
             // 
             comboBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(343, 103);
+            comboBox1.Location = new Point(502, 137);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(234, 28);
+            comboBox1.Size = new Size(267, 33);
             comboBox1.TabIndex = 6;
             comboBox1.Text = "Seleccione";
             // 
@@ -195,9 +203,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(63, 140);
+            label5.Location = new Point(72, 186);
             label5.Name = "label5";
-            label5.Size = new Size(82, 25);
+            label5.Size = new Size(101, 32);
             label5.TabIndex = 7;
             label5.Text = "Motivo*";
             // 
@@ -205,20 +213,22 @@
             // 
             tableLayoutPanel1.SetColumnSpan(panel3, 2);
             panel3.Controls.Add(txtrason);
-            panel3.Location = new Point(63, 173);
+            panel3.Location = new Point(72, 230);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(556, 81);
+            panel3.Size = new Size(635, 108);
             panel3.TabIndex = 8;
             // 
             // txtrason
             // 
             txtrason.Dock = DockStyle.Fill;
             txtrason.Location = new Point(0, 0);
+            txtrason.Margin = new Padding(3, 4, 3, 4);
             txtrason.Multiline = true;
             txtrason.Name = "txtrason";
             txtrason.PlaceholderText = "Descripción del motivo";
             txtrason.ScrollBars = ScrollBars.Horizontal;
-            txtrason.Size = new Size(556, 81);
+            txtrason.Size = new Size(635, 108);
             txtrason.TabIndex = 0;
             // 
             // BtnAgendar
@@ -228,9 +238,10 @@
             BtnAgendar.FlatStyle = FlatStyle.Flat;
             BtnAgendar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BtnAgendar.ForeColor = SystemColors.ActiveCaptionText;
-            BtnAgendar.Location = new Point(414, 284);
+            BtnAgendar.Location = new Point(634, 378);
+            BtnAgendar.Margin = new Padding(3, 4, 3, 4);
             BtnAgendar.Name = "BtnAgendar";
-            BtnAgendar.Size = new Size(140, 35);
+            BtnAgendar.Size = new Size(160, 47);
             BtnAgendar.TabIndex = 10;
             BtnAgendar.Text = "Agendar Cita";
             BtnAgendar.UseVisualStyleBackColor = false;
@@ -240,9 +251,10 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Top;
             btnCancelar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(130, 284);
+            btnCancelar.Location = new Point(204, 378);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(140, 35);
+            btnCancelar.Size = new Size(160, 47);
             btnCancelar.TabIndex = 9;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -250,12 +262,13 @@
             // 
             // FormAddApointment
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(680, 400);
+            ClientSize = new Size(1030, 597);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormAddApointment";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormAddApointment";
