@@ -61,10 +61,10 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(224, 224, 224);
+            panel2.Controls.Add(btnentrar);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(checkBox1);
-            panel2.Controls.Add(btnentrar);
             panel2.Controls.Add(txtclave);
             panel2.Controls.Add(TxtUser);
             panel2.Controls.Add(pictureBox3);
