@@ -1,15 +1,10 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Semestre_Tres.Persistence
 {
-    internal class DeleteCommand: DatabaseConnection
+    internal class DeleteCommand : DatabaseConnection
     {
         public DeleteCommand() : base() { }
         public DeleteCommand(string connectionString) : base(connectionString) { }

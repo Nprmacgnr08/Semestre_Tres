@@ -1,14 +1,6 @@
 ﻿using Semestre_Tres.Bussines;
 using Semestre_Tres.Clases;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Semestre_Tres.Pantallas
 {
@@ -42,8 +34,8 @@ namespace Semestre_Tres.Pantallas
                 BackColor = Color.White,
                 Margin = new Padding(10),
                 BorderStyle = BorderStyle.FixedSingle,
-                Padding = new Padding(10), 
-                Cursor = Cursors.Hand       
+                Padding = new Padding(10),
+                Cursor = Cursors.Hand
             };
 
             Label lblCodigo = new Label

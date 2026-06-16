@@ -1,11 +1,5 @@
 ﻿using Semestre_Tres.Clases;
-using Semestre_Tres.Persistence;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Semestre_Tres.Bussines
 {
@@ -19,7 +13,7 @@ namespace Semestre_Tres.Bussines
         }
 
         #region Métodos
-    
+
 
         // Guardar expediente
         public int AddExpedient()

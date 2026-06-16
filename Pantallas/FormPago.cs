@@ -1,14 +1,6 @@
 ﻿using Semestre_Tres.Bussines;
 using Semestre_Tres.Clases;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Semestre_Tres.Pantallas
 {
@@ -52,7 +44,7 @@ namespace Semestre_Tres.Pantallas
         {
 
             FormPago frm = new FormPago();
-             FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
+            FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
             menu?.AbrirFormulario(frm);
         }
         private void ActualizarTotales()

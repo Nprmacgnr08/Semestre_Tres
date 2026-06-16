@@ -1,15 +1,6 @@
 ﻿using Semestre_Tres.Bussines;
 using Semestre_Tres.Clases;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Semestre_Tres.Pantallas
 {
@@ -65,7 +56,7 @@ namespace Semestre_Tres.Pantallas
                 BtnAgendar.Text = "Agendar Cita";
             }
         }
-        
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             FormMenuAdmin MenuAdmin = this.ParentForm as FormMenuAdmin;
@@ -132,10 +123,10 @@ namespace Semestre_Tres.Pantallas
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-          
-        
 
-       
+
+
+
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
@@ -148,6 +139,11 @@ namespace Semestre_Tres.Pantallas
 
             var horasDisponibles = horasBase.Except(horasOcupadas).ToList();
             comboBox1.DataSource = horasDisponibles;
+        }
+
+        private void CmbSeleccionarPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

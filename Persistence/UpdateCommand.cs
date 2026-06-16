@@ -1,16 +1,10 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Semestre_Tres.Persistence
 {
-    internal class UpdateCommand: DatabaseConnection
+    internal class UpdateCommand : DatabaseConnection
     {
 
         public UpdateCommand() : base() { }
