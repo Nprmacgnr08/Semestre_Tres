@@ -9,7 +9,14 @@ namespace Semestre_Tres.Pantallas
         public FormTratamiento()
         {
             InitializeComponent();
-            CargarTratamientos();
+            try
+            {
+                CargarTratamientos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar tratamientos: " + ex.Message);
+            }
         }
         private void CargarTratamientos()
         {

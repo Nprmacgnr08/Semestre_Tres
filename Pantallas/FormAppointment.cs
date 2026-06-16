@@ -13,7 +13,14 @@ namespace Semestre_Tres.Pantallas
         }
         private void FormAppointment_Load(object sender, EventArgs e)
         {
-            CargarCitas();
+            try
+            {
+                CargarCitas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar citas: " + ex.Message);
+            }
         }
         private void CargarCitas()
         {
