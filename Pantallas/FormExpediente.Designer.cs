@@ -56,7 +56,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 83);
+            panel1.Size = new Size(1030, 83);
             panel1.TabIndex = 2;
             // 
             // btnnuevoexpediente
@@ -68,7 +68,7 @@
             btnnuevoexpediente.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnnuevoexpediente.Image = Properties.Resources._269362_plus_icon;
             btnnuevoexpediente.ImageAlign = ContentAlignment.MiddleLeft;
-            btnnuevoexpediente.Location = new Point(561, 28);
+            btnnuevoexpediente.Location = new Point(791, 28);
             btnnuevoexpediente.Name = "btnnuevoexpediente";
             btnnuevoexpediente.Size = new Size(208, 35);
             btnnuevoexpediente.TabIndex = 5;
@@ -81,7 +81,7 @@
             // 
             pictureBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox3.Image = Properties.Resources.magnifying_glass_search_icon_208829;
-            pictureBox3.Location = new Point(445, 28);
+            pictureBox3.Location = new Point(518, 28);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(35, 35);
             pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -98,7 +98,7 @@
             button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.Image = Properties.Resources._269362_plus_icon;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(1157, 42);
+            button1.Location = new Point(1387, 42);
             button1.Name = "button1";
             button1.Size = new Size(212, 35);
             button1.TabIndex = 4;
@@ -110,7 +110,7 @@
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = Properties.Resources.magnifying_glass_search_icon_208829;
-            pictureBox2.Location = new Point(1049, 42);
+            pictureBox2.Location = new Point(1279, 42);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(35, 35);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -126,7 +126,7 @@
             BtnCita.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BtnCita.Image = Properties.Resources._269362_plus_icon;
             BtnCita.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnCita.Location = new Point(1759, 39);
+            BtnCita.Location = new Point(1989, 39);
             BtnCita.Name = "BtnCita";
             BtnCita.Size = new Size(211, 38);
             BtnCita.TabIndex = 3;
@@ -137,7 +137,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.magnifying_glass_search_icon_208829;
-            pictureBox1.Location = new Point(1699, 42);
+            pictureBox1.Location = new Point(1929, 42);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(35, 35);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -162,14 +162,14 @@
             flpexpedientes.Location = new Point(0, 83);
             flpexpedientes.Name = "flpexpedientes";
             flpexpedientes.Padding = new Padding(20);
-            flpexpedientes.Size = new Size(800, 367);
+            flpexpedientes.Size = new Size(1030, 567);
             flpexpedientes.TabIndex = 3;
             // 
             // FormExpediente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1030, 650);
             Controls.Add(flpexpedientes);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

@@ -69,19 +69,17 @@
             panel1.Dock = DockStyle.Top;
             panel1.ForeColor = SystemColors.ActiveCaption;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1031, 99);
+            panel1.Size = new Size(1030, 74);
             panel1.TabIndex = 2;
             // 
             // pictureBox2
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = Properties.Resources.x_icon_150997;
-            pictureBox2.Location = new Point(919, 31);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Location = new Point(932, 23);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(40, 47);
+            pictureBox2.Size = new Size(35, 35);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
@@ -91,10 +89,9 @@
             // 
             picSalir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             picSalir.Image = Properties.Resources.x_icon_150997;
-            picSalir.Location = new Point(1483, 32);
-            picSalir.Margin = new Padding(3, 4, 3, 4);
+            picSalir.Location = new Point(1426, 24);
             picSalir.Name = "picSalir";
-            picSalir.Size = new Size(40, 47);
+            picSalir.Size = new Size(35, 35);
             picSalir.SizeMode = PictureBoxSizeMode.Zoom;
             picSalir.TabIndex = 3;
             picSalir.TabStop = false;
@@ -103,10 +100,9 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.x_icon_150997;
-            pictureBox1.Location = new Point(2054, 32);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(1925, 24);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(40, 47);
+            pictureBox1.Size = new Size(35, 35);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -116,9 +112,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(333, 24);
+            label1.Location = new Point(331, 13);
             label1.Name = "label1";
-            label1.Size = new Size(368, 54);
+            label1.Size = new Size(293, 45);
             label1.TabIndex = 0;
             label1.Text = "Nuevo Expediente";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -128,8 +124,8 @@
             tableLayoutPanel1.ColumnCount = 4;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7.100592F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 92.89941F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 489F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 508F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 26F));
             tableLayoutPanel1.Controls.Add(label3, 2, 0);
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(mtbcedula, 2, 1);
@@ -146,28 +142,27 @@
             tableLayoutPanel1.Controls.Add(cmbPaciente, 1, 1);
             tableLayoutPanel1.Controls.Add(cmbtratamientos, 1, 5);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 99);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Location = new Point(0, 74);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 8;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.1481476F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 51.8518524F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 42.3076935F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 57.6923065F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 63F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 115F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
-            tableLayoutPanel1.Size = new Size(1031, 434);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 102F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 171F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 109F));
+            tableLayoutPanel1.Size = new Size(1030, 576);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(515, 0);
+            label3.Location = new Point(498, 0);
             label3.Name = "label3";
-            label3.Size = new Size(196, 28);
+            label3.Size = new Size(155, 21);
             label3.TabIndex = 1;
             label3.Text = "Cédula de identidad*";
             // 
@@ -175,29 +170,28 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(39, 0);
+            label2.Location = new Point(38, 0);
             label2.Name = "label2";
-            label2.Size = new Size(198, 28);
+            label2.Size = new Size(158, 21);
             label2.TabIndex = 2;
             label2.Text = "Seleccionar paciente*";
             // 
             // mtbcedula
             // 
             mtbcedula.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            mtbcedula.Location = new Point(515, 40);
-            mtbcedula.Margin = new Padding(3, 4, 3, 4);
+            mtbcedula.Location = new Point(498, 36);
             mtbcedula.Mask = "000-000000-0000L";
             mtbcedula.Name = "mtbcedula";
-            mtbcedula.Size = new Size(338, 29);
+            mtbcedula.Size = new Size(296, 25);
             mtbcedula.TabIndex = 4;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(39, 74);
+            label4.Location = new Point(38, 78);
             label4.Name = "label4";
-            label4.Size = new Size(149, 28);
+            label4.Size = new Size(119, 21);
             label4.TabIndex = 5;
             label4.Text = "Tipo de sangre*";
             // 
@@ -205,9 +199,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(515, 74);
+            label5.Location = new Point(498, 78);
             label5.Name = "label5";
-            label5.Size = new Size(90, 28);
+            label5.Size = new Size(73, 21);
             label5.TabIndex = 6;
             label5.Text = "Alergias*";
             // 
@@ -216,28 +210,26 @@
             cmbsangretype.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbsangretype.FormattingEnabled = true;
             cmbsangretype.Items.AddRange(new object[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" });
-            cmbsangretype.Location = new Point(39, 113);
-            cmbsangretype.Margin = new Padding(3, 4, 3, 4);
+            cmbsangretype.Location = new Point(38, 113);
             cmbsangretype.Name = "cmbsangretype";
-            cmbsangretype.Size = new Size(341, 29);
+            cmbsangretype.Size = new Size(299, 25);
             cmbsangretype.TabIndex = 7;
             // 
             // TxtAlergias
             // 
             TxtAlergias.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TxtAlergias.Location = new Point(515, 113);
-            TxtAlergias.Margin = new Padding(3, 4, 3, 4);
+            TxtAlergias.Location = new Point(498, 113);
             TxtAlergias.Name = "TxtAlergias";
-            TxtAlergias.Size = new Size(341, 29);
+            TxtAlergias.Size = new Size(299, 25);
             TxtAlergias.TabIndex = 8;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(39, 152);
+            label6.Location = new Point(38, 156);
             label6.Name = "label6";
-            label6.Size = new Size(124, 28);
+            label6.Size = new Size(100, 21);
             label6.TabIndex = 9;
             label6.Text = "Tratamiento*";
             // 
@@ -245,20 +237,19 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(515, 152);
+            label7.Location = new Point(498, 156);
             label7.Name = "label7";
-            label7.Size = new Size(157, 28);
+            label7.Size = new Size(126, 21);
             label7.TabIndex = 10;
             label7.Text = "Historial Clínico*";
             // 
             // txthistorial
             // 
             txthistorial.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txthistorial.Location = new Point(515, 188);
-            txthistorial.Margin = new Padding(3, 4, 3, 4);
+            txthistorial.Location = new Point(498, 196);
             txthistorial.Multiline = true;
             txthistorial.Name = "txthistorial";
-            txthistorial.Size = new Size(341, 53);
+            txthistorial.Size = new Size(299, 41);
             txthistorial.TabIndex = 14;
             // 
             // panel2
@@ -266,28 +257,26 @@
             tableLayoutPanel1.SetColumnSpan(panel2, 2);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label8);
-            panel2.Location = new Point(39, 251);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(38, 298);
             panel2.Name = "panel2";
-            panel2.Size = new Size(959, 107);
+            panel2.Size = new Size(839, 130);
             panel2.TabIndex = 15;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(315, 32);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
+            textBox1.Location = new Point(173, 24);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(347, 73);
+            textBox1.Size = new Size(583, 103);
             textBox1.TabIndex = 11;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(404, 0);
+            label8.Location = new Point(388, 0);
             label8.Name = "label8";
-            label8.Size = new Size(148, 28);
+            label8.Size = new Size(119, 21);
             label8.TabIndex = 10;
             label8.Text = "Notas médicas*";
             // 
@@ -298,10 +287,9 @@
             btncrear.FlatStyle = FlatStyle.Flat;
             btncrear.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btncrear.ForeColor = SystemColors.ControlText;
-            btncrear.Location = new Point(659, 366);
-            btncrear.Margin = new Padding(3, 4, 3, 4);
+            btncrear.Location = new Point(664, 469);
             btncrear.Name = "btncrear";
-            btncrear.Size = new Size(194, 47);
+            btncrear.Size = new Size(170, 35);
             btncrear.TabIndex = 16;
             btncrear.Text = "Crear Expediente";
             btncrear.UseVisualStyleBackColor = false;
@@ -311,10 +299,9 @@
             // 
             btncancelar.Anchor = AnchorStyles.Top;
             btncancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btncancelar.Location = new Point(182, 366);
-            btncancelar.Margin = new Padding(3, 4, 3, 4);
+            btncancelar.Location = new Point(185, 469);
             btncancelar.Name = "btncancelar";
-            btncancelar.Size = new Size(183, 47);
+            btncancelar.Size = new Size(160, 35);
             btncancelar.TabIndex = 32;
             btncancelar.Text = "Cancelar";
             btncancelar.UseVisualStyleBackColor = true;
@@ -323,10 +310,9 @@
             // cmbPaciente
             // 
             cmbPaciente.FormattingEnabled = true;
-            cmbPaciente.Location = new Point(39, 40);
-            cmbPaciente.Margin = new Padding(3, 4, 3, 4);
+            cmbPaciente.Location = new Point(38, 36);
             cmbPaciente.Name = "cmbPaciente";
-            cmbPaciente.Size = new Size(341, 28);
+            cmbPaciente.Size = new Size(299, 23);
             cmbPaciente.TabIndex = 33;
             cmbPaciente.SelectedIndexChanged += cmbPaciente_SelectedIndexChanged;
             // 
@@ -335,21 +321,19 @@
             cmbtratamientos.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbtratamientos.FormattingEnabled = true;
             cmbtratamientos.Items.AddRange(new object[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" });
-            cmbtratamientos.Location = new Point(39, 188);
-            cmbtratamientos.Margin = new Padding(3, 4, 3, 4);
+            cmbtratamientos.Location = new Point(38, 196);
             cmbtratamientos.Name = "cmbtratamientos";
-            cmbtratamientos.Size = new Size(341, 29);
+            cmbtratamientos.Size = new Size(299, 25);
             cmbtratamientos.TabIndex = 34;
             // 
             // FormAddExpediente
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1031, 533);
+            ClientSize = new Size(1030, 650);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormAddExpediente";
             Text = "FormAddExpediente";
             panel1.ResumeLayout(false);

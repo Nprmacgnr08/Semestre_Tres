@@ -60,19 +60,17 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1039, 59);
+            panel1.Size = new Size(1030, 44);
             panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.x_icon_150997;
-            pictureBox1.Location = new Point(970, 11);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(970, 8);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(34, 40);
+            pictureBox1.Size = new Size(30, 30);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -83,9 +81,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(364, 9);
+            label1.Location = new Point(364, 6);
             label1.Name = "label1";
-            label1.Size = new Size(293, 41);
+            label1.Size = new Size(237, 32);
             label1.TabIndex = 0;
             label1.Text = "Detalles del paciente";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -93,9 +91,9 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 69F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 447F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 442F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 459F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 389F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 8F));
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(label3, 2, 0);
@@ -114,8 +112,7 @@
             tableLayoutPanel1.Controls.Add(LblAdrees, 1, 7);
             tableLayoutPanel1.Controls.Add(LblGender, 2, 7);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 59);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Location = new Point(0, 44);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 8;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.499176F));
@@ -126,20 +123,20 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.4991722F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5016727F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.50328F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
-            tableLayoutPanel1.Size = new Size(1039, 422);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(1030, 606);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(72, 0);
+            label2.Location = new Point(63, 0);
             label2.Name = "label2";
-            label2.Size = new Size(96, 28);
+            label2.Size = new Size(78, 21);
             label2.TabIndex = 0;
             label2.Text = "Nombre*";
             // 
@@ -147,9 +144,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(519, 0);
+            label3.Location = new Point(522, 0);
             label3.Name = "label3";
-            label3.Size = new Size(96, 28);
+            label3.Size = new Size(79, 21);
             label3.TabIndex = 1;
             label3.Text = "Apellido*";
             // 
@@ -159,18 +156,18 @@
             LblName.Dock = DockStyle.Left;
             LblName.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LblName.ForeColor = Color.FromArgb(64, 64, 64);
-            LblName.Location = new Point(72, 52);
+            LblName.Location = new Point(63, 75);
             LblName.Name = "LblName";
-            LblName.Size = new Size(0, 52);
+            LblName.Size = new Size(0, 75);
             LblName.TabIndex = 2;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(72, 104);
+            label4.Location = new Point(63, 150);
             label4.Name = "label4";
-            label4.Size = new Size(83, 28);
+            label4.Size = new Size(67, 21);
             label4.TabIndex = 3;
             label4.Text = "Cédula*";
             // 
@@ -178,9 +175,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(519, 104);
+            label5.Location = new Point(522, 150);
             label5.Name = "label5";
-            label5.Size = new Size(100, 28);
+            label5.Size = new Size(81, 21);
             label5.TabIndex = 4;
             label5.Text = "Teléfono*";
             // 
@@ -188,9 +185,9 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(72, 208);
+            label6.Location = new Point(63, 300);
             label6.Name = "label6";
-            label6.Size = new Size(125, 28);
+            label6.Size = new Size(101, 21);
             label6.TabIndex = 5;
             label6.Text = "Nacimiento*";
             // 
@@ -198,9 +195,9 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(519, 208);
+            label7.Location = new Point(522, 300);
             label7.Name = "label7";
-            label7.Size = new Size(69, 28);
+            label7.Size = new Size(55, 21);
             label7.TabIndex = 6;
             label7.Text = "Email*";
             // 
@@ -208,9 +205,9 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(72, 312);
+            label8.Location = new Point(63, 450);
             label8.Name = "label8";
-            label8.Size = new Size(105, 28);
+            label8.Size = new Size(86, 21);
             label8.TabIndex = 7;
             label8.Text = "Dirección*";
             // 
@@ -218,9 +215,9 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(519, 312);
+            label9.Location = new Point(522, 450);
             label9.Name = "label9";
-            label9.Size = new Size(88, 28);
+            label9.Size = new Size(71, 21);
             label9.TabIndex = 8;
             label9.Text = "Género*";
             // 
@@ -230,9 +227,9 @@
             LblLastname.Dock = DockStyle.Left;
             LblLastname.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LblLastname.ForeColor = Color.FromArgb(64, 64, 64);
-            LblLastname.Location = new Point(519, 52);
+            LblLastname.Location = new Point(522, 75);
             LblLastname.Name = "LblLastname";
-            LblLastname.Size = new Size(0, 52);
+            LblLastname.Size = new Size(0, 75);
             LblLastname.TabIndex = 9;
             // 
             // LblIdcard
@@ -241,9 +238,9 @@
             LblIdcard.Dock = DockStyle.Left;
             LblIdcard.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LblIdcard.ForeColor = Color.FromArgb(64, 64, 64);
-            LblIdcard.Location = new Point(72, 156);
+            LblIdcard.Location = new Point(63, 225);
             LblIdcard.Name = "LblIdcard";
-            LblIdcard.Size = new Size(0, 52);
+            LblIdcard.Size = new Size(0, 75);
             LblIdcard.TabIndex = 10;
             // 
             // LblPhone
@@ -252,9 +249,9 @@
             LblPhone.Dock = DockStyle.Left;
             LblPhone.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LblPhone.ForeColor = Color.FromArgb(64, 64, 64);
-            LblPhone.Location = new Point(519, 156);
+            LblPhone.Location = new Point(522, 225);
             LblPhone.Name = "LblPhone";
-            LblPhone.Size = new Size(0, 52);
+            LblPhone.Size = new Size(0, 75);
             LblPhone.TabIndex = 11;
             // 
             // LblBirthDate
@@ -263,9 +260,9 @@
             LblBirthDate.Dock = DockStyle.Left;
             LblBirthDate.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LblBirthDate.ForeColor = Color.FromArgb(64, 64, 64);
-            LblBirthDate.Location = new Point(72, 260);
+            LblBirthDate.Location = new Point(63, 375);
             LblBirthDate.Name = "LblBirthDate";
-            LblBirthDate.Size = new Size(0, 52);
+            LblBirthDate.Size = new Size(0, 75);
             LblBirthDate.TabIndex = 12;
             // 
             // LblGmail
@@ -274,9 +271,9 @@
             LblGmail.Dock = DockStyle.Left;
             LblGmail.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LblGmail.ForeColor = Color.FromArgb(64, 64, 64);
-            LblGmail.Location = new Point(519, 260);
+            LblGmail.Location = new Point(522, 375);
             LblGmail.Name = "LblGmail";
-            LblGmail.Size = new Size(0, 52);
+            LblGmail.Size = new Size(0, 75);
             LblGmail.TabIndex = 13;
             // 
             // LblAdrees
@@ -285,9 +282,9 @@
             LblAdrees.Dock = DockStyle.Left;
             LblAdrees.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LblAdrees.ForeColor = Color.FromArgb(64, 64, 64);
-            LblAdrees.Location = new Point(72, 364);
+            LblAdrees.Location = new Point(63, 525);
             LblAdrees.Name = "LblAdrees";
-            LblAdrees.Size = new Size(0, 58);
+            LblAdrees.Size = new Size(0, 81);
             LblAdrees.TabIndex = 14;
             // 
             // LblGender
@@ -296,20 +293,19 @@
             LblGender.Dock = DockStyle.Left;
             LblGender.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LblGender.ForeColor = Color.FromArgb(64, 64, 64);
-            LblGender.Location = new Point(519, 364);
+            LblGender.Location = new Point(522, 525);
             LblGender.Name = "LblGender";
-            LblGender.Size = new Size(0, 58);
+            LblGender.Size = new Size(0, 81);
             LblGender.TabIndex = 15;
             // 
             // FormDetallePatient
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1039, 481);
+            ClientSize = new Size(1030, 650);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormDetallePatient";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Detalles del paciente";

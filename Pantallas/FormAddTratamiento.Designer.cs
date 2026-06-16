@@ -61,14 +61,14 @@
             panel1.ForeColor = SystemColors.ActiveCaption;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(723, 74);
+            panel1.Size = new Size(1030, 74);
             panel1.TabIndex = 1;
             // 
             // picSalir
             // 
             picSalir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             picSalir.Image = Properties.Resources.x_icon_150997;
-            picSalir.Location = new Point(637, 24);
+            picSalir.Location = new Point(944, 24);
             picSalir.Name = "picSalir";
             picSalir.Size = new Size(35, 35);
             picSalir.SizeMode = PictureBoxSizeMode.Zoom;
@@ -80,7 +80,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.x_icon_150997;
-            pictureBox1.Location = new Point(1138, 24);
+            pictureBox1.Location = new Point(1445, 24);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(35, 35);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -90,11 +90,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(207, 24);
+            label1.Location = new Point(369, 19);
             label1.Name = "label1";
-            label1.Size = new Size(234, 32);
+            label1.Size = new Size(284, 40);
             label1.TabIndex = 0;
             label1.Text = "Nuevo Tratamiento";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -102,7 +102,7 @@
             // TxtDescripcionpro
             // 
             TxtDescripcionpro.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TxtDescripcionpro.Location = new Point(33, 95);
+            TxtDescripcionpro.Location = new Point(112, 120);
             TxtDescripcionpro.Multiline = true;
             TxtDescripcionpro.Name = "TxtDescripcionpro";
             TxtDescripcionpro.PlaceholderText = "Descripción detallada del tratamirnto";
@@ -114,7 +114,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(33, 0);
+            label2.Location = new Point(112, 0);
             label2.Name = "label2";
             label2.Size = new Size(218, 21);
             label2.TabIndex = 0;
@@ -123,7 +123,7 @@
             // txtprocedimineto
             // 
             txtprocedimineto.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtprocedimineto.Location = new Point(33, 31);
+            txtprocedimineto.Location = new Point(112, 39);
             txtprocedimineto.Name = "txtprocedimineto";
             txtprocedimineto.PlaceholderText = "Ej: Endodoncia";
             txtprocedimineto.Size = new Size(243, 25);
@@ -133,8 +133,8 @@
             // 
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 654F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 39F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 794F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 127F));
             tableLayoutPanel1.Controls.Add(txtprocedimineto, 1, 1);
             tableLayoutPanel1.Controls.Add(label2, 1, 0);
             tableLayoutPanel1.Controls.Add(label3, 1, 2);
@@ -144,21 +144,21 @@
             tableLayoutPanel1.Location = new Point(0, 74);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 5;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 41.79105F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 58.2089539F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 89F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 145F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 44.4444427F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 55.5555573F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 83F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 375F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(723, 326);
+            tableLayoutPanel1.Size = new Size(1030, 576);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(33, 67);
+            label3.Location = new Point(112, 81);
             label3.Name = "label3";
             label3.Size = new Size(103, 21);
             label3.TabIndex = 2;
@@ -176,16 +176,16 @@
             tableLayoutPanel2.Controls.Add(btnGuardar, 1, 3);
             tableLayoutPanel2.Controls.Add(btncancelar, 0, 3);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(33, 184);
+            tableLayoutPanel2.Location = new Point(112, 203);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 4;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 45.6140366F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 54.3859634F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 44F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 40.2061844F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 59.7938156F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 103F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 169F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(648, 139);
+            tableLayoutPanel2.Size = new Size(788, 370);
             tableLayoutPanel2.TabIndex = 4;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
@@ -193,7 +193,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(327, 0);
+            label5.Location = new Point(397, 0);
             label5.Name = "label5";
             label5.Size = new Size(60, 21);
             label5.TabIndex = 4;
@@ -212,7 +212,7 @@
             // txtduracion
             // 
             txtduracion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtduracion.Location = new Point(3, 29);
+            txtduracion.Location = new Point(3, 42);
             txtduracion.Name = "txtduracion";
             txtduracion.PlaceholderText = "Ej: 45min";
             txtduracion.Size = new Size(100, 25);
@@ -221,7 +221,7 @@
             // txtcosto
             // 
             txtcosto.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtcosto.Location = new Point(327, 29);
+            txtcosto.Location = new Point(397, 42);
             txtcosto.Name = "txtcosto";
             txtcosto.PlaceholderText = "00.00";
             txtcosto.Size = new Size(100, 25);
@@ -234,7 +234,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = SystemColors.ControlText;
-            btnGuardar.Location = new Point(406, 98);
+            btnGuardar.Location = new Point(511, 203);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(160, 35);
             btnGuardar.TabIndex = 7;
@@ -246,7 +246,7 @@
             // 
             btncancelar.Anchor = AnchorStyles.Top;
             btncancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btncancelar.Location = new Point(82, 98);
+            btncancelar.Location = new Point(117, 203);
             btncancelar.Name = "btncancelar";
             btncancelar.Size = new Size(160, 35);
             btncancelar.TabIndex = 32;
@@ -258,7 +258,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(723, 400);
+            ClientSize = new Size(1030, 650);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

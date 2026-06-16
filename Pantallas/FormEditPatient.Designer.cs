@@ -61,19 +61,17 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1041, 133);
+            panel1.Size = new Size(911, 100);
             panel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.x_icon_150997;
-            pictureBox1.Location = new Point(1648, 32);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(1442, 24);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(40, 47);
+            pictureBox1.Size = new Size(35, 35);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -82,9 +80,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(378, 37);
+            label1.Location = new Point(331, 28);
             label1.Name = "label1";
-            label1.Size = new Size(271, 50);
+            label1.Size = new Size(211, 40);
             label1.TabIndex = 0;
             label1.Text = "Editar Paciente";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -93,10 +91,10 @@
             // 
             tableLayoutPanel1.BackColor = Color.FromArgb(216, 225, 235);
             tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 57F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 447F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 463F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 12F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 391F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 405F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
             tableLayoutPanel1.Controls.Add(label3, 2, 0);
             tableLayoutPanel1.Controls.Add(txtLastname, 2, 1);
             tableLayoutPanel1.Controls.Add(txtphone, 2, 3);
@@ -116,30 +114,29 @@
             tableLayoutPanel1.Controls.Add(btncancelar, 1, 8);
             tableLayoutPanel1.Controls.Add(btnguardar, 2, 8);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 133);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Location = new Point(0, 100);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 10;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
-            tableLayoutPanel1.Size = new Size(1041, 467);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
+            tableLayoutPanel1.Size = new Size(911, 350);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(507, 0);
+            label3.Location = new Point(444, 0);
             label3.Name = "label3";
-            label3.Size = new Size(122, 32);
+            label3.Size = new Size(98, 25);
             label3.TabIndex = 1;
             label3.Text = "Apellidos*";
             // 
@@ -147,29 +144,27 @@
             // 
             txtLastname.Anchor = AnchorStyles.Top;
             txtLastname.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtLastname.Location = new Point(592, 51);
-            txtLastname.Margin = new Padding(3, 4, 3, 4);
+            txtLastname.Location = new Point(518, 38);
             txtLastname.Name = "txtLastname";
-            txtLastname.Size = new Size(286, 39);
+            txtLastname.Size = new Size(251, 33);
             txtLastname.TabIndex = 18;
             // 
             // txtphone
             // 
             txtphone.Anchor = AnchorStyles.Top;
             txtphone.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtphone.Location = new Point(592, 145);
-            txtphone.Margin = new Padding(3, 4, 3, 4);
+            txtphone.Location = new Point(518, 108);
             txtphone.Name = "txtphone";
-            txtphone.Size = new Size(286, 39);
+            txtphone.Size = new Size(251, 33);
             txtphone.TabIndex = 21;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(507, 94);
+            label5.Location = new Point(444, 70);
             label5.Name = "label5";
-            label5.Size = new Size(117, 32);
+            label5.Size = new Size(92, 25);
             label5.TabIndex = 22;
             label5.Text = "Teléfono*";
             // 
@@ -177,9 +172,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(60, 0);
+            label2.Location = new Point(53, 0);
             label2.Name = "label2";
-            label2.Size = new Size(112, 32);
+            label2.Size = new Size(89, 25);
             label2.TabIndex = 0;
             label2.Text = "Nombre*";
             // 
@@ -187,19 +182,18 @@
             // 
             txtname.Anchor = AnchorStyles.Top;
             txtname.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtname.Location = new Point(137, 51);
-            txtname.Margin = new Padding(3, 4, 3, 4);
+            txtname.Location = new Point(120, 38);
             txtname.Name = "txtname";
-            txtname.Size = new Size(286, 39);
+            txtname.Size = new Size(251, 33);
             txtname.TabIndex = 2;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(60, 94);
+            label4.Location = new Point(53, 70);
             label4.Name = "label4";
-            label4.Size = new Size(98, 32);
+            label4.Size = new Size(79, 25);
             label4.TabIndex = 19;
             label4.Text = "Cédula*";
             // 
@@ -207,20 +201,19 @@
             // 
             mtbidcard.Anchor = AnchorStyles.Top;
             mtbidcard.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            mtbidcard.Location = new Point(139, 145);
-            mtbidcard.Margin = new Padding(3, 4, 3, 4);
+            mtbidcard.Location = new Point(121, 108);
             mtbidcard.Mask = "000-000000-0000L";
             mtbidcard.Name = "mtbidcard";
-            mtbidcard.Size = new Size(283, 39);
+            mtbidcard.Size = new Size(248, 33);
             mtbidcard.TabIndex = 20;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(60, 188);
+            label6.Location = new Point(53, 140);
             label6.Name = "label6";
-            label6.Size = new Size(147, 32);
+            label6.Size = new Size(117, 25);
             label6.TabIndex = 23;
             label6.Text = "Nacimiento*";
             // 
@@ -228,9 +221,9 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(507, 188);
+            label7.Location = new Point(444, 140);
             label7.Name = "label7";
-            label7.Size = new Size(81, 32);
+            label7.Size = new Size(66, 25);
             label7.TabIndex = 24;
             label7.Text = "Email*";
             // 
@@ -238,11 +231,10 @@
             // 
             mtbbirthdate.Anchor = AnchorStyles.Top;
             mtbbirthdate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            mtbbirthdate.Location = new Point(139, 239);
-            mtbbirthdate.Margin = new Padding(3, 4, 3, 4);
+            mtbbirthdate.Location = new Point(121, 178);
             mtbbirthdate.Mask = "00/00/0000";
             mtbbirthdate.Name = "mtbbirthdate";
-            mtbbirthdate.Size = new Size(283, 39);
+            mtbbirthdate.Size = new Size(248, 33);
             mtbbirthdate.TabIndex = 25;
             mtbbirthdate.ValidatingType = typeof(DateTime);
             // 
@@ -250,19 +242,18 @@
             // 
             txtgmail.Anchor = AnchorStyles.Top;
             txtgmail.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtgmail.Location = new Point(592, 239);
-            txtgmail.Margin = new Padding(3, 4, 3, 4);
+            txtgmail.Location = new Point(518, 178);
             txtgmail.Name = "txtgmail";
-            txtgmail.Size = new Size(286, 39);
+            txtgmail.Size = new Size(251, 33);
             txtgmail.TabIndex = 26;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(60, 282);
+            label8.Location = new Point(53, 210);
             label8.Name = "label8";
-            label8.Size = new Size(124, 32);
+            label8.Size = new Size(100, 25);
             label8.TabIndex = 27;
             label8.Text = "Dirección*";
             // 
@@ -270,9 +261,9 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(507, 282);
+            label9.Location = new Point(444, 210);
             label9.Name = "label9";
-            label9.Size = new Size(102, 32);
+            label9.Size = new Size(82, 25);
             label9.TabIndex = 28;
             label9.Text = "Género*";
             // 
@@ -280,10 +271,9 @@
             // 
             txtadrees.Anchor = AnchorStyles.Top;
             txtadrees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtadrees.Location = new Point(137, 333);
-            txtadrees.Margin = new Padding(3, 4, 3, 4);
+            txtadrees.Location = new Point(120, 248);
             txtadrees.Name = "txtadrees";
-            txtadrees.Size = new Size(286, 39);
+            txtadrees.Size = new Size(251, 33);
             txtadrees.TabIndex = 29;
             // 
             // comboxgander
@@ -292,20 +282,18 @@
             comboxgander.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboxgander.FormattingEnabled = true;
             comboxgander.Items.AddRange(new object[] { "Masculino", "Femenino" });
-            comboxgander.Location = new Point(592, 333);
-            comboxgander.Margin = new Padding(3, 4, 3, 4);
+            comboxgander.Location = new Point(517, 248);
             comboxgander.Name = "comboxgander";
-            comboxgander.Size = new Size(287, 40);
+            comboxgander.Size = new Size(252, 33);
             comboxgander.TabIndex = 30;
             // 
             // btncancelar
             // 
             btncancelar.Anchor = AnchorStyles.Top;
             btncancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btncancelar.Location = new Point(189, 380);
-            btncancelar.Margin = new Padding(3, 4, 3, 4);
+            btncancelar.Location = new Point(165, 283);
             btncancelar.Name = "btncancelar";
-            btncancelar.Size = new Size(183, 47);
+            btncancelar.Size = new Size(160, 35);
             btncancelar.TabIndex = 31;
             btncancelar.Text = "Cancelar";
             btncancelar.UseVisualStyleBackColor = true;
@@ -317,10 +305,9 @@
             btnguardar.BackColor = Color.FromArgb(127, 164, 201);
             btnguardar.FlatStyle = FlatStyle.Flat;
             btnguardar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnguardar.Location = new Point(644, 380);
-            btnguardar.Margin = new Padding(3, 4, 3, 4);
+            btnguardar.Location = new Point(563, 283);
             btnguardar.Name = "btnguardar";
-            btnguardar.Size = new Size(183, 47);
+            btnguardar.Size = new Size(160, 35);
             btnguardar.TabIndex = 32;
             btnguardar.Text = "Guardar Cambios";
             btnguardar.UseVisualStyleBackColor = false;
@@ -328,13 +315,12 @@
             // 
             // FormEditPatient
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1041, 600);
+            ClientSize = new Size(911, 450);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormEditPatient";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormEditPatient";
