@@ -171,19 +171,23 @@ namespace Semestre_Tres.Clases
         public DataTable Listar()
         {
             string sql = @"SELECT p.PaymentId, p.Amount, p.Currency, p.PaymentMethod, p.PaymentDate,
-                                  pa.Name AS Paciente, t.Name AS Tratamiento
-                           FROM Payment p
-                           INNER JOIN Patient pa ON p.IdPatient = pa.PatientId
-                           INNER JOIN Treatment t ON p.IdTreatment = t.TreatmentId
-                           ORDER BY p.PaymentDate DESC";
+                      pa.Name AS Paciente, t.Name AS Tratamiento
+               FROM Payment p
+               INNER JOIN Patient pa ON p.IdPatient = pa.PatientId
+               INNER JOIN Treatment t ON p.IdTreatment = t.TreatmentId
+               ORDER BY p.PaymentDate DESC";
 
-            using SelectQuery select = new SelectQuery();
+            SelectQuery select = new SelectQuery(); // sin using
             DataTable dt = new DataTable();
+
             using (SqlDataReader reader = select.ExecuteSelect(sql, Array.Empty<SqlParameter>()))
             {
                 dt.Load(reader);
             }
+
+            select.Close(); // cerrar manualmente después
             return dt;
+
         }
         #endregion
 

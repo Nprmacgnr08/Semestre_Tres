@@ -72,7 +72,7 @@ namespace Semestre_Tres.Pantallas
 
             Label lblPrecio = new Label
             {
-                Text = $"Precio: C$ {Convert.ToDecimal(row["Cost"]):N2}",
+                Text = $"Precio:{Convert.ToDecimal(row["Cost"]):N2}",
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 ForeColor = Color.ForestGreen,
                 Location = new Point(10, 105)

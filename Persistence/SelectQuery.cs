@@ -45,6 +45,10 @@ namespace Semestre_Tres.Persistence
 
 
         }// end of ExecuteSelect
+        public void Close()
+        {
+            CloseConnection();
+        }
 
         public bool IsDuplicate(string query, SqlParameter[] parameters = null)
         {

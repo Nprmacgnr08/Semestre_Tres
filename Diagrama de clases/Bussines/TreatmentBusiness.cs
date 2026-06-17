@@ -77,7 +77,7 @@ namespace Semestre_Tres.Bussines
         // Listar todos los tratamientos
         public DataTable ListAll()
         {
-            return _treatment.Listar();
+            return _treatment.ListarTratamiento();
         }
         #endregion
     }

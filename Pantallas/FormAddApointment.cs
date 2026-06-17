@@ -26,7 +26,7 @@ namespace Semestre_Tres.Pantallas
         {
             // 🔹 Cargar pacientes en el ComboBox
             Patient p = new Patient();
-            CmbSeleccionarPaciente.DataSource = p.Listar(); // método que devuelve todos los pacientes
+            CmbSeleccionarPaciente.DataSource = p.ListarPaciente(); // método que devuelve todos los pacientes
             CmbSeleccionarPaciente.DisplayMember = "Name";
             CmbSeleccionarPaciente.ValueMember = "PatientId";
 

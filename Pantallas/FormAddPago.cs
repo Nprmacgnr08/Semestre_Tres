@@ -15,13 +15,13 @@ namespace Semestre_Tres.Pantallas
         private void FormAddPago_Load(object sender, EventArgs e)
         {
             Patient p = new Patient();
-            cmbpaciente.DataSource = p.Listar();
+            cmbpaciente.DataSource = p.ListarPaciente();
             cmbpaciente.DisplayMember = "Name";
             cmbpaciente.ValueMember = "PatientId";
 
             // 🔹 Cargar tratamientos
             Treatment t = new Treatment();
-            cmbtratamiento.DataSource = t.Listar();
+            cmbtratamiento.DataSource = t.ListarTratamiento();
             cmbtratamiento.DisplayMember = "TreatmentName";
             cmbtratamiento.ValueMember = "TreatmentId";
 

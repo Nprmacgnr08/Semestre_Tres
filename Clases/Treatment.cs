@@ -147,7 +147,7 @@ namespace Semestre_Tres.Clases
         }
 
         // Listar todos los tratamientos
-        public DataTable Listar()
+        public DataTable ListarTratamiento()
         {
             string sql = @"SELECT TreatmentId, Name, Description, Duration, Cost
                            FROM Treatment

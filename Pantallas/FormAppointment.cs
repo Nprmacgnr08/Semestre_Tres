@@ -36,7 +36,7 @@ namespace Semestre_Tres.Pantallas
             dataGridView1.Columns["Time"].HeaderText = "Hora";
             dataGridView1.Columns["Reason"].HeaderText = "Motivo";
             dataGridView1.Columns["Status"].HeaderText = "Estado";
-         
+
 
         }
 
@@ -119,6 +119,11 @@ namespace Semestre_Tres.Pantallas
         }
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

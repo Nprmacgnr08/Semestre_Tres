@@ -286,6 +286,7 @@
             comboxgander.Name = "comboxgander";
             comboxgander.Size = new Size(252, 33);
             comboxgander.TabIndex = 30;
+            comboxgander.SelectedIndexChanged += comboxgander_SelectedIndexChanged;
             // 
             // btncancelar
             // 

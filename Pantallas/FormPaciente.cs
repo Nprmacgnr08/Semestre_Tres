@@ -30,18 +30,25 @@ namespace Semestre_Tres.Pantallas
             PatientBusiness business = new PatientBusiness(paciente);
             DataTable dt = business.ListAll();
 
+            MessageBox.Show("Filas encontradas: " + dt.Rows.Count);
+
+            dtgpacientess.DataSource = null;
+            dtgpacientess.AutoGenerateColumns = true;
             dtgpacientess.DataSource = dt;
-            dtgpacientess.Columns["PatientId"].Visible= false;
-            dtgpacientess.Columns["Name"].HeaderText= "Nombre";
-            dtgpacientess.Columns["Lastname"].HeaderText = "Apellido";
-            dtgpacientess.Columns["Phone"].HeaderText = "Telefono";
-            dtgpacientess.Columns["Gmail"].HeaderText = "Email";
-            dtgpacientess.Columns["Gender"].HeaderText = "Genero";
-            dtgpacientess.Columns["BirthDate"].HeaderText = "Cympleaños";
-            dtgpacientess.Columns["Address"].HeaderText = "Direccion";
-            dtgpacientess.Columns["IdCard"].HeaderText = "Cedula";
 
+            if (dtgpacientess.Rows.Count > 0)
+            {
+                dtgpacientess.Columns["PatientId"].Visible = false;
+                dtgpacientess.Columns["Name"].HeaderText = "Nombre";
+                dtgpacientess.Columns["Lastname"].HeaderText = "Apellido";
+                dtgpacientess.Columns["Phone"].HeaderText = "Telefono";
+                dtgpacientess.Columns["Gmail"].HeaderText = "Email";
+                dtgpacientess.Columns["Gender"].HeaderText = "Genero";
+                dtgpacientess.Columns["BirthDate"].HeaderText = "Cympleaños";
+                dtgpacientess.Columns["Address"].HeaderText = "Direccion";
+                dtgpacientess.Columns["IdCard"].HeaderText = "Cedula";
 
+            }
         }
         //Abre el formulario para agregar un nuevo paciente y refresca la lista después de agregar
         private void btnagregar_Click(object sender, EventArgs e)

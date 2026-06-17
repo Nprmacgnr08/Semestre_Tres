@@ -159,21 +159,24 @@ namespace Semestre_Tres.Clases
         }
 
         // Listar todos los pacientes
-        public DataTable Listar()
+        public DataTable ListarPaciente()
         {
             string sql = @"SELECT PatientId, Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard
                            FROM Patient
                            ORDER BY Name ASC";
 
-            using SelectQuery select = new SelectQuery();
+            SelectQuery select = new SelectQuery(); // sin using
             DataTable dt = new DataTable();
+
             using (SqlDataReader reader = select.ExecuteSelect(sql, Array.Empty<SqlParameter>()))
             {
                 dt.Load(reader);
             }
+
+            select.Close(); // cerrar manualmente después
             return dt;
         }
-
+         
         // Obtener paciente por id
         public Patient GetPatientById(int id)
         {

@@ -65,7 +65,7 @@ namespace Semestre_Tres.Bussines
         // Listar todos los pacientes
         public DataTable ListAll()
         {
-            return _patient.Listar();
+            return _patient.ListarPaciente();
         }
         #endregion
 

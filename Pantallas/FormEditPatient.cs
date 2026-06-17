@@ -49,7 +49,7 @@ namespace Semestre_Tres.Pantallas
         private void FormEditPatient_Load(object sender, EventArgs e)
         {
 
-
+            CargarDatosPaciente();
 
 
         }
@@ -105,6 +105,11 @@ namespace Semestre_Tres.Pantallas
             {
                 MessageBox.Show(ex.Message, "Error al actualizar paciente", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void comboxgander_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
