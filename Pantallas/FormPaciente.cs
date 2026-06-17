@@ -9,6 +9,7 @@ namespace Semestre_Tres.Pantallas
         public FormPaciente()
         {
             InitializeComponent();
+            
         }
 
         // Carga la lista de pacientes al abrir el formulario
