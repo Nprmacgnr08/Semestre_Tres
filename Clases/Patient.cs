@@ -18,8 +18,10 @@ namespace Semestre_Tres.Clases
         public DateTime BirthDate { get; set; } = DateTime.MinValue;
         public string Address { get; set; } = string.Empty;
         public string IdCard { get; set; } = string.Empty;
-        public string BloodType { get; set; } = string.Empty;
-        public string Allergies { get; set; } = string.Empty;
+//public string BloodType { get; set; } = string.Empty;
+      /// <summary>
+      // public string Allergies { get; set; } = string.Empty;
+      /// </summary>
         #endregion
 
         #region Constructors
@@ -35,8 +37,8 @@ namespace Semestre_Tres.Clases
             BirthDate = DateTime.MinValue;
             Address = string.Empty;
             IdCard = string.Empty;
-            BloodType = string.Empty;
-            Allergies = string.Empty;
+           // BloodType = string.Empty;
+            //Allergies = string.Empty;
         }
 
         // Constructor con id
@@ -47,8 +49,7 @@ namespace Semestre_Tres.Clases
 
         // Constructor con parámetros completos
         public Patient(int patientId, string name, string lastname, string phone, string gmail,
-                       string gender, DateTime birthDate, string address, string idCard,
-                       string bloodType, string allergies)
+                       string gender, DateTime birthDate, string address, string idCard)
         {
             PatientId = patientId;
             Name = name;
@@ -59,8 +60,8 @@ namespace Semestre_Tres.Clases
             BirthDate = birthDate;
             Address = address;
             IdCard = idCard;
-            BloodType = bloodType;
-            Allergies = allergies;
+            //BloodType = bloodType;
+            //Allergies = allergies;
         }
         #endregion
         #region Methods
@@ -86,8 +87,8 @@ namespace Semestre_Tres.Clases
         public int InsertPatient()
         {
             using InsertCommand insert = new InsertCommand();
-            string sql = @"INSERT INTO Patient (Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard, BloodType, Allergies)
-                           VALUES (@Name, @Lastname, @Phone, @Gmail, @Gender, @BirthDate, @Address, @IdCard, @BloodType, @Allergies)";
+            string sql = @"INSERT INTO Patient (Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard)
+                           VALUES (@Name, @Lastname, @Phone, @Gmail, @Gender, @BirthDate, @Address, @IdCard)";
 
             SqlParameter[] parameters =
             {
@@ -99,8 +100,8 @@ namespace Semestre_Tres.Clases
                 new SqlParameter("@BirthDate", SqlDbType.DateTime) { Value = BirthDate },
                 new SqlParameter("@Address", SqlDbType.VarChar, 200) { Value = Address },
                 new SqlParameter("@IdCard", SqlDbType.VarChar, 50) { Value = IdCard },
-                new SqlParameter("@BloodType", SqlDbType.VarChar, 10) { Value = BloodType },
-                new SqlParameter("@Allergies", SqlDbType.VarChar, 250) { Value = Allergies }
+               // new SqlParameter("@BloodType", SqlDbType.VarChar, 10) { Value = BloodType },
+                //new SqlParameter("@Allergies", SqlDbType.VarChar, 250) { Value = Allergies }
             };
 
             return insert.ExecuteInsert(sql, parameters);
@@ -112,7 +113,7 @@ namespace Semestre_Tres.Clases
             using UpdateCommand update = new UpdateCommand();
             string sql = @"UPDATE Patient
                            SET Name=@Name, Lastname=@Lastname, Phone=@Phone, Gmail=@Gmail, Gender=@Gender,
-                               BirthDate=@BirthDate, Address=@Address, IdCard=@IdCard, BloodType=@BloodType, Allergies=@Allergies
+                               BirthDate=@BirthDate, Address=@Address, IdCard=@IdCard 
                            WHERE PatientId=@PatientId";
 
             SqlParameter[] parameters =
@@ -125,8 +126,8 @@ namespace Semestre_Tres.Clases
                 new SqlParameter("@BirthDate", SqlDbType.DateTime) { Value = BirthDate },
                 new SqlParameter("@Address", SqlDbType.VarChar, 200) { Value = Address },
                 new SqlParameter("@IdCard", SqlDbType.VarChar, 50) { Value = IdCard },
-                new SqlParameter("@BloodType", SqlDbType.VarChar, 10) { Value = BloodType },
-                new SqlParameter("@Allergies", SqlDbType.VarChar, 250) { Value = Allergies },
+               // new SqlParameter("@BloodType", SqlDbType.VarChar, 10) { Value = BloodType },
+               //new SqlParameter("@Allergies", SqlDbType.VarChar, 250) { Value = Allergies },
                 new SqlParameter("@PatientId", SqlDbType.Int) { Value = PatientId }
             };
 
@@ -199,9 +200,9 @@ namespace Semestre_Tres.Clases
                         reader["Gender"].ToString()!,
                         Convert.ToDateTime(reader["BirthDate"]),
                         reader["Address"].ToString()!,
-                        reader["IdCard"].ToString()!,
-                        reader["BloodType"].ToString()!,
-                        reader["Allergies"].ToString()!
+                        reader["IdCard"].ToString()!
+                       // reader["BloodType"].ToString()!,
+                        //reader["Allergies"].ToString()!
                     );
                 }
             }
