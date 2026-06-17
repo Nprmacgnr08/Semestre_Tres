@@ -44,7 +44,7 @@ namespace Semestre_Tres.Pantallas
                 dtgpacientess.Columns["Phone"].HeaderText = "Telefono";
                 dtgpacientess.Columns["Gmail"].HeaderText = "Email";
                 dtgpacientess.Columns["Gender"].HeaderText = "Genero";
-                dtgpacientess.Columns["BirthDate"].HeaderText = "Cympleaños";
+                dtgpacientess.Columns["BirthDate"].HeaderText = "Cumpleaños";
                 dtgpacientess.Columns["Address"].HeaderText = "Direccion";
                 dtgpacientess.Columns["IdCard"].HeaderText = "Cedula";
 
