@@ -33,19 +33,16 @@
             pictureBox1 = new PictureBox();
             textBox1 = new TextBox();
             panel2 = new Panel();
+            dtgpacientess = new DataGridView();
+            panel3 = new Panel();
             btnEliminar = new Button();
             btneditar = new Button();
             BtnVer = new Button();
-            dtgpaciente = new DataGridView();
-            ColID = new DataGridViewTextBoxColumn();
-            ColName = new DataGridViewTextBoxColumn();
-            ColIdCard = new DataGridViewTextBoxColumn();
-            ColPhone = new DataGridViewTextBoxColumn();
-            ColBirthdate = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgpaciente).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgpacientess).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -69,7 +66,7 @@
             btnagregar.Image = Properties.Resources._269362_plus_icon;
             btnagregar.ImageAlign = ContentAlignment.MiddleLeft;
             btnagregar.Location = new Point(766, 20);
-            btnagregar.Margin = new Padding(4, 4, 4, 4);
+            btnagregar.Margin = new Padding(4);
             btnagregar.Name = "btnagregar";
             btnagregar.Size = new Size(211, 38);
             btnagregar.TabIndex = 2;
@@ -101,10 +98,8 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(btnEliminar);
-            panel2.Controls.Add(btneditar);
-            panel2.Controls.Add(BtnVer);
-            panel2.Controls.Add(dtgpaciente);
+            panel2.Controls.Add(dtgpacientess);
+            panel2.Controls.Add(panel3);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 68);
             panel2.Name = "panel2";
@@ -112,12 +107,32 @@
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
+            // dtgpacientess
+            // 
+            dtgpacientess.BackgroundColor = SystemColors.ButtonHighlight;
+            dtgpacientess.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgpacientess.Location = new Point(24, 28);
+            dtgpacientess.Name = "dtgpacientess";
+            dtgpacientess.Size = new Size(533, 465);
+            dtgpacientess.TabIndex = 5;
+            dtgpacientess.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(btnEliminar);
+            panel3.Controls.Add(btneditar);
+            panel3.Controls.Add(BtnVer);
+            panel3.Location = new Point(703, 28);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(200, 465);
+            panel3.TabIndex = 4;
+            // 
             // btnEliminar
             // 
             btnEliminar.BackColor = SystemColors.ActiveCaption;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEliminar.Location = new Point(777, 425);
+            btnEliminar.Location = new Point(32, 352);
             btnEliminar.Margin = new Padding(0);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(139, 40);
@@ -131,8 +146,8 @@
             btneditar.BackColor = SystemColors.ActiveCaption;
             btneditar.FlatStyle = FlatStyle.Flat;
             btneditar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btneditar.Location = new Point(777, 273);
-            btneditar.Margin = new Padding(4, 4, 4, 4);
+            btneditar.Location = new Point(32, 215);
+            btneditar.Margin = new Padding(4);
             btneditar.Name = "btneditar";
             btneditar.Size = new Size(139, 40);
             btneditar.TabIndex = 2;
@@ -146,73 +161,14 @@
             BtnVer.BackColor = SystemColors.ActiveCaption;
             BtnVer.FlatStyle = FlatStyle.Flat;
             BtnVer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BtnVer.Location = new Point(777, 130);
-            BtnVer.Margin = new Padding(4, 4, 4, 4);
+            BtnVer.Location = new Point(32, 54);
+            BtnVer.Margin = new Padding(4);
             BtnVer.Name = "BtnVer";
             BtnVer.Size = new Size(139, 40);
             BtnVer.TabIndex = 1;
             BtnVer.Text = "Ver";
             BtnVer.UseVisualStyleBackColor = false;
             BtnVer.Click += BtnVer_Click;
-            // 
-            // dtgpaciente
-            // 
-            dtgpaciente.AllowUserToAddRows = false;
-            dtgpaciente.AllowUserToResizeRows = false;
-            dtgpaciente.BackgroundColor = Color.Beige;
-            dtgpaciente.BorderStyle = BorderStyle.None;
-            dtgpaciente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgpaciente.Columns.AddRange(new DataGridViewColumn[] { ColID, ColName, ColIdCard, ColPhone, ColBirthdate });
-            dtgpaciente.Location = new Point(46, 28);
-            dtgpaciente.Margin = new Padding(9, 8, 9, 8);
-            dtgpaciente.Name = "dtgpaciente";
-            dtgpaciente.ReadOnly = true;
-            dtgpaciente.RowHeadersVisible = false;
-            dtgpaciente.RowHeadersWidth = 51;
-            dtgpaciente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgpaciente.Size = new Size(551, 465);
-            dtgpaciente.TabIndex = 0;
-            // 
-            // ColID
-            // 
-            ColID.FillWeight = 50F;
-            ColID.HeaderText = "Id";
-            ColID.MinimumWidth = 6;
-            ColID.Name = "ColID";
-            ColID.ReadOnly = true;
-            ColID.Width = 50;
-            // 
-            // ColName
-            // 
-            ColName.HeaderText = "Nombre";
-            ColName.MinimumWidth = 6;
-            ColName.Name = "ColName";
-            ColName.ReadOnly = true;
-            ColName.Width = 125;
-            // 
-            // ColIdCard
-            // 
-            ColIdCard.HeaderText = "Cédula";
-            ColIdCard.MinimumWidth = 6;
-            ColIdCard.Name = "ColIdCard";
-            ColIdCard.ReadOnly = true;
-            ColIdCard.Width = 125;
-            // 
-            // ColPhone
-            // 
-            ColPhone.HeaderText = "Teléfono";
-            ColPhone.MinimumWidth = 6;
-            ColPhone.Name = "ColPhone";
-            ColPhone.ReadOnly = true;
-            ColPhone.Width = 125;
-            // 
-            // ColBirthdate
-            // 
-            ColBirthdate.HeaderText = "Nacimiento";
-            ColBirthdate.MinimumWidth = 6;
-            ColBirthdate.Name = "ColBirthdate";
-            ColBirthdate.ReadOnly = true;
-            ColBirthdate.Width = 125;
             // 
             // FormPaciente
             // 
@@ -228,7 +184,8 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtgpaciente).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgpacientess).EndInit();
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -239,14 +196,10 @@
         private TextBox textBox1;
         private Button btnagregar;
         private Panel panel2;
-        private DataGridView dtgpaciente;
         private Button btnEliminar;
         private Button btneditar;
         private Button BtnVer;
-        private DataGridViewTextBoxColumn ColID;
-        private DataGridViewTextBoxColumn ColName;
-        private DataGridViewTextBoxColumn ColIdCard;
-        private DataGridViewTextBoxColumn ColPhone;
-        private DataGridViewTextBoxColumn ColBirthdate;
+        private Panel panel3;
+        private DataGridView dtgpacientess;
     }
 }

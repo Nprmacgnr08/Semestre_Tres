@@ -1,5 +1,6 @@
 ﻿using Semestre_Tres.Bussines;
 using Semestre_Tres.Clases;
+using System.Data;
 
 namespace Semestre_Tres.Pantallas
 {
@@ -14,13 +15,28 @@ namespace Semestre_Tres.Pantallas
         private void FormPaciente_Load(object sender, EventArgs e)
         {
             CargarPacientes();
+                dtgpacientess.AutoGenerateColumns = true;
         }
 
         private void CargarPacientes()
         {
             Patient paciente = new Patient();
             PatientBusiness business = new PatientBusiness(paciente);
-            dtgpaciente.DataSource = business.ListAll();
+
+            DataTable dt = business.ListAll();
+
+            dtgpacientess.DataSource = dt;
+            dtgpacientess.Columns["PatientId"].HeaderText = "Id";
+            dtgpacientess.Columns["Name"].HeaderText = "Nombre";
+            dtgpacientess.Columns["Lastname"].HeaderText = "Apellido";
+            dtgpacientess.Columns["Phone"].HeaderText = "Telefono";
+            dtgpacientess.Columns["Gmail"].HeaderText = "Email";
+            dtgpacientess.Columns["Gender"].HeaderText = "Genero";
+            dtgpacientess.Columns["BirthDate"].HeaderText = "Cympleaños";
+            dtgpacientess.Columns["Address"].HeaderText = "Direccion";
+            dtgpacientess.Columns["IdCard"].HeaderText = "Cedula";
+
+
         }
         //Abre el formulario para agregar un nuevo paciente y refresca la lista después de agregar
         private void btnagregar_Click(object sender, EventArgs e)
@@ -34,9 +50,9 @@ namespace Semestre_Tres.Pantallas
         // Abre el formulario de detalles del paciente seleccionado
         private void BtnVer_Click(object sender, EventArgs e)
         {
-            if (dtgpaciente.SelectedRows.Count > 0)
+            if (dtgpacientess.SelectedRows.Count > 0)
             {
-                int idPatient = Convert.ToInt32(dtgpaciente.SelectedRows[0].Cells["PatientId"].Value);
+                int idPatient = Convert.ToInt32(dtgpacientess.SelectedRows[0].Cells["PatientId"].Value);
                 FormDetallePatient frm = new FormDetallePatient(idPatient);
                 FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
                 menu?.AbrirFormulario(frm);
@@ -51,9 +67,9 @@ namespace Semestre_Tres.Pantallas
         private void btneditar_Click(object sender, EventArgs e)
         {
 
-            if (dtgpaciente.SelectedRows.Count > 0)
+            if (dtgpacientess.SelectedRows.Count > 0)
             {
-                int idPatient = Convert.ToInt32(dtgpaciente.SelectedRows[0].Cells["PatientId"].Value);
+                int idPatient = Convert.ToInt32(dtgpacientess.SelectedRows[0].Cells["PatientId"].Value);
                 FormEditPatient frm = new FormEditPatient(idPatient);
                 FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
                 menu?.AbrirFormulario(frm);
@@ -69,9 +85,9 @@ namespace Semestre_Tres.Pantallas
         // Elimina el paciente seleccionado y refresca la lista después de eliminar
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dtgpaciente.SelectedRows.Count > 0)
+            if (dtgpacientess.SelectedRows.Count > 0)
             {
-                int idPatient = Convert.ToInt32(dtgpaciente.SelectedRows[0].Cells["PatientId"].Value);
+                int idPatient = Convert.ToInt32(dtgpacientess.SelectedRows[0].Cells["PatientId"].Value);
 
                 DialogResult confirm = MessageBox.Show("¿Desea eliminar este paciente?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.Yes)
@@ -121,7 +137,12 @@ namespace Semestre_Tres.Pantallas
 
             Patient paciente = new Patient();
             PatientBusiness business = new PatientBusiness(paciente);
-            dtgpaciente.DataSource = business.SearchByCedula(cedula);
+            dtgpacientess.DataSource = business.SearchByCedula(cedula);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

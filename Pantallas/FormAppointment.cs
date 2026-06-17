@@ -30,12 +30,13 @@ namespace Semestre_Tres.Pantallas
             DataTable dt = business.ListAll();
 
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns["Paciente"].HeaderText = "Paciente";
             dataGridView1.Columns["AppointmentId"].Visible = false;
             dataGridView1.Columns["Date"].HeaderText = "Fecha";
             dataGridView1.Columns["Time"].HeaderText = "Hora";
             dataGridView1.Columns["Reason"].HeaderText = "Motivo";
             dataGridView1.Columns["Status"].HeaderText = "Estado";
-            dataGridView1.Columns["Paciente"].HeaderText = "Paciente";
+         
 
         }
 

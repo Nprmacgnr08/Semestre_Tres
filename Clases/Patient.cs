@@ -146,7 +146,7 @@ namespace Semestre_Tres.Clases
 
         public DataTable BuscarPorCedula(string cedula)
         {
-            string sql = @"SELECT PatientId, Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard, BloodType, Allergies
+            string sql = @"SELECT PatientId, Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard
                            FROM Patient
                            WHERE IdCard = @Cedula";
 
@@ -164,7 +164,7 @@ namespace Semestre_Tres.Clases
         // Listar todos los pacientes
         public DataTable Listar()
         {
-            string sql = @"SELECT PatientId, Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard, BloodType, Allergies
+            string sql = @"SELECT PatientId, Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard
                            FROM Patient
                            ORDER BY Name ASC";
 
@@ -180,7 +180,7 @@ namespace Semestre_Tres.Clases
         // Obtener paciente por id
         public Patient GetPatientById(int id)
         {
-            string sql = @"SELECT PatientId, Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard, BloodType, Allergies
+            string sql = @"SELECT PatientId, Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard
                            FROM Patient
                            WHERE PatientId=@PatientId";
 
