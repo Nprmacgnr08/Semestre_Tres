@@ -12,7 +12,14 @@ namespace Semestre_Tres.Pantallas
         }
         private void FormPago_Load(object sender, EventArgs e)
         {
-            CargarPagos();
+            try
+            {
+                CargarPagos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar citas: " + ex.Message);
+            }
             ActualizarTotales();
         }
         private void CargarPagos()
@@ -43,7 +50,7 @@ namespace Semestre_Tres.Pantallas
         private void BtnPago_Click(object sender, EventArgs e)
         {
 
-            FormPago frm = new FormPago();
+            FormAddPago frm = new FormAddPago();
             FormMenuAdmin menu = Application.OpenForms["FormMenuAdmin"] as FormMenuAdmin;
             menu?.AbrirFormulario(frm);
         }

@@ -78,7 +78,7 @@ namespace Semestre_Tres.Clases
         }
         #endregion
 
-        #region Métodos de persistencia (estilo profe)
+        #region Métodos de persistencia
         // Agregar (INSERT) -> devuelve filas afectadas (int)
         public int InsertConsultation()
         {

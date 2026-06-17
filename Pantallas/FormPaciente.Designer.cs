@@ -113,7 +113,7 @@
             dtgpacientess.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgpacientess.Location = new Point(24, 28);
             dtgpacientess.Name = "dtgpacientess";
-            dtgpacientess.Size = new Size(533, 465);
+            dtgpacientess.Size = new Size(509, 465);
             dtgpacientess.TabIndex = 5;
             dtgpacientess.CellContentClick += dataGridView1_CellContentClick;
             // 

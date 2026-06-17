@@ -100,8 +100,7 @@ namespace Semestre_Tres.Clases
                 new SqlParameter("@BirthDate", SqlDbType.DateTime) { Value = BirthDate },
                 new SqlParameter("@Address", SqlDbType.VarChar, 200) { Value = Address },
                 new SqlParameter("@IdCard", SqlDbType.VarChar, 50) { Value = IdCard },
-               // new SqlParameter("@BloodType", SqlDbType.VarChar, 10) { Value = BloodType },
-                //new SqlParameter("@Allergies", SqlDbType.VarChar, 250) { Value = Allergies }
+               
             };
 
             return insert.ExecuteInsert(sql, parameters);
@@ -126,8 +125,6 @@ namespace Semestre_Tres.Clases
                 new SqlParameter("@BirthDate", SqlDbType.DateTime) { Value = BirthDate },
                 new SqlParameter("@Address", SqlDbType.VarChar, 200) { Value = Address },
                 new SqlParameter("@IdCard", SqlDbType.VarChar, 50) { Value = IdCard },
-               // new SqlParameter("@BloodType", SqlDbType.VarChar, 10) { Value = BloodType },
-               //new SqlParameter("@Allergies", SqlDbType.VarChar, 250) { Value = Allergies },
                 new SqlParameter("@PatientId", SqlDbType.Int) { Value = PatientId }
             };
 

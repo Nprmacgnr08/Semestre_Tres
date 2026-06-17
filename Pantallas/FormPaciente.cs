@@ -14,20 +14,25 @@ namespace Semestre_Tres.Pantallas
         // Carga la lista de pacientes al abrir el formulario
         private void FormPaciente_Load(object sender, EventArgs e)
         {
-            CargarPacientes();
-                dtgpacientess.AutoGenerateColumns = true;
+            try
+            {
+                CargarPacientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar citas: " + ex.Message);
+            }
         }
 
         private void CargarPacientes()
         {
             Patient paciente = new Patient();
             PatientBusiness business = new PatientBusiness(paciente);
-
             DataTable dt = business.ListAll();
 
             dtgpacientess.DataSource = dt;
-            dtgpacientess.Columns["PatientId"].HeaderText = "Id";
-            dtgpacientess.Columns["Name"].HeaderText = "Nombre";
+            dtgpacientess.Columns["PatientId"].Visible= false;
+            dtgpacientess.Columns["Name"].HeaderText= "Nombre";
             dtgpacientess.Columns["Lastname"].HeaderText = "Apellido";
             dtgpacientess.Columns["Phone"].HeaderText = "Telefono";
             dtgpacientess.Columns["Gmail"].HeaderText = "Email";
