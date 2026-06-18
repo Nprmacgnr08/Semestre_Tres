@@ -78,6 +78,7 @@
             picSalir.SizeMode = PictureBoxSizeMode.Zoom;
             picSalir.TabIndex = 3;
             picSalir.TabStop = false;
+            picSalir.Click += picSalir_Click;
             // 
             // pictureBox1
             // 
@@ -263,6 +264,7 @@
             btncancelar.TabIndex = 0;
             btncancelar.Text = "Cancelar";
             btncancelar.UseVisualStyleBackColor = true;
+            btncancelar.Click += btncancelar_Click;
             // 
             // cmbtratamiento
             // 

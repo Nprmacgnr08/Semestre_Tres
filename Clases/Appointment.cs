@@ -23,21 +23,17 @@ namespace Semestre_Tres.Clases
 
 
         // Establecer la propiedad de navegación para el paciente asociado a esta cita.
-        public Patient PatientId
+        public Patient Patient
         {
             get
             {
-                // Cuando se pide la propiedad y no se ha cargado de la base de datos, se carga automáticamente
                 if (_patient == null && _patientId > 0)
                 {
                     _patient = new Patient();
-                    // Aquí deberías implementar en Patient un método GetPatientById que devuelva el objeto desde la BD
                     _patient = _patient.GetPatientById(_patientId);
                 }
                 return _patient!;
-
-            }//end-get
-
+            }
             set
             {
                 _patient = value;
@@ -46,7 +42,7 @@ namespace Semestre_Tres.Clases
                     _patientId = value.PatientId;
                 }
             }
-        }//end-Patient
+        }
         #endregion
 
         #region Constructors
@@ -114,7 +110,7 @@ namespace Semestre_Tres.Clases
 
                 SqlParameter[] parameters =
                 {
-                    new SqlParameter("@IdPatient", SqlDbType.Int) { Value = this.PatientId.PatientId },
+                    new SqlParameter("@IdPatient", SqlDbType.Int) { Value = this.Patient.PatientId },
                     new SqlParameter("@Date", SqlDbType.DateTime) { Value = this.Date },
                     new SqlParameter("@Time", SqlDbType.VarChar, 10) { Value = this.Time },
                     new SqlParameter("@Reason", SqlDbType.VarChar, 100) { Value = this.Reason },
@@ -139,7 +135,7 @@ namespace Semestre_Tres.Clases
 
             SqlParameter[] parameters =
             {
-                new SqlParameter("@IdPatient", SqlDbType.Int) { Value = this.PatientId.PatientId },
+                new SqlParameter("@IdPatient", SqlDbType.Int) { Value = this.Patient.PatientId },
                 new SqlParameter("@Date", SqlDbType.DateTime) { Value = this.Date },
                 new SqlParameter("@Time", SqlDbType.VarChar, 10) { Value = this.Time },
                 new SqlParameter("@Reason", SqlDbType.VarChar, 100) { Value = this.Reason },
@@ -194,6 +190,7 @@ namespace Semestre_Tres.Clases
         }
         public DataTable BuscarPorFecha(string fechaTexto)
         {
+
             if (!DateTime.TryParse(fechaTexto, out DateTime fecha))
             {
                 throw new Exception("La fecha ingresada no es válida.");

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Semestre_Tres.Persistence;
 using System.Data;
+using System.Drawing;
 
 namespace Semestre_Tres.Clases
 {
@@ -159,18 +160,40 @@ namespace Semestre_Tres.Clases
         }
 
         // Listar todos los pacientes
-        public DataTable ListarPaciente()
+        public List<Patient> ListPatient()
         {
-            string sql = "SELECT PatientId, Name FROM Patient ORDER BY Name";
+            string sql = @"SELECT PatientId, Name, Lastname, Phone, Gmail, Gender, BirthDate, Address, IdCard FROM Patient";
+
+            List<Patient> PatientSelected = new List<Patient>();
+
             using SelectQuery select = new SelectQuery();
-            DataTable dt = new DataTable();
-            using (SqlDataReader reader = select.ExecuteSelect(sql, Array.Empty<SqlParameter>()))
+            using SqlDataReader reader = select.ExecuteSelect(sql);
+
+            // Correcto - Verificar si tiene filas sin consumir la primera
+            if (!reader.HasRows)  // Usar HasRows en lugar de Read()
             {
-                dt.Load(reader);
+                return PatientSelected;  // Retornar lista vacía en lugar de lanzar excepción
             }
-            return dt;
+
+            while (reader.Read())  // Ahora lee correctamente desde el primer registro
+            {
+                PatientSelected.Add(new Patient
+                {
+                    PatientId = reader.GetInt32(reader.GetOrdinal("PatientId")),
+                    Name = reader.GetString(reader.GetOrdinal("Name")),
+                    Lastname = reader.GetString(reader.GetOrdinal("Lastname")),
+                    Phone = reader.IsDBNull(reader.GetOrdinal("Phone")) ? "" : reader.GetString(reader.GetOrdinal("Phone")),
+                    Gmail = reader.IsDBNull(reader.GetOrdinal("Gmail")) ? "" : reader.GetString(reader.GetOrdinal("Gmail")),
+                    Gender = reader.IsDBNull(reader.GetOrdinal("Gender")) ? "" : reader.GetString(reader.GetOrdinal("Gender")),
+                    BirthDate = reader.IsDBNull(reader.GetOrdinal("BirthDate")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("BirthDate")),
+                    Address = reader.IsDBNull(reader.GetOrdinal("Address")) ? "" : reader.GetString(reader.GetOrdinal("Address")),
+                    IdCard = reader.IsDBNull(reader.GetOrdinal("IdCard")) ? "" : reader.GetString(reader.GetOrdinal("IdCard"))
+                });
+            }
+
+            return PatientSelected;
         }
-         
+
         // Obtener paciente por id
         public Patient GetPatientById(int id)
         {

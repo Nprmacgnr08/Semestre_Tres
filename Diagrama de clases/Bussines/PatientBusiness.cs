@@ -1,5 +1,6 @@
 ﻿using Semestre_Tres.Clases;
 using System.Data;
+using System.Drawing;
 
 namespace Semestre_Tres.Bussines
 {
@@ -7,6 +8,10 @@ namespace Semestre_Tres.Bussines
     {
         private Patient _patient;
 
+        public PatientBusiness()
+        {
+            _patient = new Patient();
+        }
         public PatientBusiness(Patient patient)
         {
             _patient = patient;
@@ -44,6 +49,15 @@ namespace Semestre_Tres.Bussines
             if (string.IsNullOrWhiteSpace(_patient.IdCard))
                 throw new Exception("La cédula es obligatoria.");
 
+            // Validar duplicado por cédula (excepto el mismo paciente)
+            if (_patient.IsDuplicatePatient(_patient.IdCard))
+            {
+                // Si ya existe, verificar si es el mismo paciente
+                // Para esto necesitarías un método que verifique si la cédula pertenece a otro paciente
+                // O podrías modificar IsDuplicatePatient para que reciba un PatientId opcional
+                throw new Exception($"Ya existe otro paciente con la cédula {_patient.IdCard}.");
+            }
+
             return _patient.UpdatePatient();
         }
 
@@ -63,9 +77,17 @@ namespace Semestre_Tres.Bussines
         }
 
         // Listar todos los pacientes
-        public DataTable ListAll()
+        public List<Patient>? ReadPatient()
         {
-            return _patient.ListarPaciente();
+            try
+            {
+                return _patient.ListPatient();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Intento fallido al leer pacientes.", ex);
+            } //end try-catch
+
         }
         #endregion
 

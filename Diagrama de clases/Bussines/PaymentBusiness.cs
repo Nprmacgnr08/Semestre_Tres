@@ -3,9 +3,14 @@ using System.Data;
 
 namespace Semestre_Tres.Bussines
 {
-    internal class PaymentBusiness
+    public class PaymentBusiness
     {
         private Payment _payment;
+
+        public PaymentBusiness()
+        {
+            _payment = new Payment();
+        }
 
         public PaymentBusiness(Payment payment)
         {
@@ -34,11 +39,7 @@ namespace Semestre_Tres.Bussines
             if (string.IsNullOrWhiteSpace(_payment.PaymentMethod))
                 throw new Exception("Debe especificar el método de pago.");
 
-            // Aquí podrías agregar validación de duplicados si tu profesor lo pide
-            // Ejemplo: evitar que se registre el mismo pago dos veces en la misma fecha
-            // if (_payment.IsDuplicatePayment(_payment.GetPatientId(), _payment.GetTreatmentId(), _payment.PaymentDate))
-            //     throw new Exception("Ya existe un pago registrado para este paciente y tratamiento en esa fecha.");
-
+            
             return _payment.InsertPayment();
         }
 
@@ -72,13 +73,32 @@ namespace Semestre_Tres.Bussines
         // Buscar pagos por paciente
         public DataTable SearchByPatientName(string nombre)
         {
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                return _payment.Listar();
+            }
             return _payment.BuscarPorPaciente(nombre);
+        }
+
+        public DataTable SearchById(int idPago)
+        {
+            if (idPago <= 0)
+                throw new Exception("ID de pago inválido.");
+
+            return _payment.BuscarPorId(idPago);
         }
 
         // Listar todos los pagos
         public DataTable ListAll()
         {
-            return _payment.Listar();
+            try
+            {
+                return _payment.Listar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar pagos: " + ex.Message);
+            }
         }
         #endregion
     }

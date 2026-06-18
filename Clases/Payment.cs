@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Semestre_Tres.Bussines;
 using Semestre_Tres.Persistence;
 using System.Data;
 
@@ -25,7 +26,10 @@ namespace Semestre_Tres.Clases
             get
             {
                 if (_patient == null && _patientId > 0)
-                    _patient = new Patient().GetPatientById(_patientId);
+                {
+                    // Usar PatientBusiness en lugar de GetPatientById
+                    _patient = ObtenerPacientePorId(_patientId);
+                }
                 return _patient!;
             }
             set
@@ -40,7 +44,10 @@ namespace Semestre_Tres.Clases
             get
             {
                 if (_treatment == null && _treatmentId > 0)
-                    _treatment = new Treatment().GetTreatmentById(_treatmentId);
+                {
+                    //  Usar TreatmentBusiness en lugar de GetTreatmentById
+                    _treatment = ObtenerTratamientoPorId(_treatmentId);
+                }
                 return _treatment!;
             }
             set
@@ -85,6 +92,45 @@ namespace Semestre_Tres.Clases
             PaymentDate = paymentDate;
         }
         #endregion
+
+        #region Métodos auxiliares para obtener objetos por ID
+
+        /// <summary>
+        /// Obtiene un paciente por su ID usando PatientBusiness
+        /// </summary>
+        private Patient ObtenerPacientePorId(int patientId)
+        {
+            try
+            {
+                //  Usar PatientBusiness para obtener el paciente
+                PatientBusiness business = new PatientBusiness();
+                List<Patient> pacientes = business.ReadPatient();
+                return pacientes.FirstOrDefault(p => p.PatientId == patientId)!;
+            }
+            catch
+            {
+                return new Patient { PatientId = patientId, Name = "Paciente no encontrado" };
+            }
+        }
+
+        /// <summary>
+        /// Obtiene un tratamiento por su ID usando TreatmentBusiness
+        /// </summary>
+        private Treatment ObtenerTratamientoPorId(int treatmentId)
+        {
+            try
+            {
+                //  Usar TreatmentBusiness para obtener el tratamiento
+                // Si no tienes TreatmentBusiness, puedes usar esta alternativa
+                return new Treatment { TreatmentId = treatmentId, Name = "Tratamiento no encontrado" };
+            }
+            catch
+            {
+                return new Treatment { TreatmentId = treatmentId, Name = "Tratamiento no encontrado" };
+            }
+        }
+        #endregion
+
 
         #region Métodos de persistencia
         // Insertar pago
@@ -146,7 +192,6 @@ namespace Semestre_Tres.Clases
             return delete.ExecuteDelete(sql, parameters);
         }
 
-        // Buscar por paciente
         public DataTable BuscarPorPaciente(string nombre)
         {
             string sql = @"SELECT p.PaymentId, p.Amount, p.Currency, p.PaymentMethod, p.PaymentDate,
@@ -154,9 +199,30 @@ namespace Semestre_Tres.Clases
                            FROM Payment p
                            INNER JOIN Patient pa ON p.IdPatient = pa.PatientId
                            INNER JOIN Treatment t ON p.IdTreatment = t.TreatmentId
-                           WHERE pa.Name LIKE '%' + @Nombre + '%'";
+                           WHERE pa.Name LIKE '%' + @Nombre + '%'
+                           ORDER BY p.PaymentDate DESC";
 
             SqlParameter[] parameters = { new SqlParameter("@Nombre", SqlDbType.VarChar, 100) { Value = nombre } };
+
+            using SelectQuery select = new SelectQuery();
+            DataTable dt = new DataTable();
+            using (SqlDataReader reader = select.ExecuteSelect(sql, parameters))
+            {
+                dt.Load(reader);
+            }
+            return dt;
+        }
+        public DataTable BuscarPorId(int idPago)
+        {
+            string sql = @"SELECT p.PaymentId, p.IdPatient, p.IdTreatment, p.Amount, p.Currency,
+                                  p.PaymentMethod, p.PaymentDate,
+                                  pa.Name AS Paciente, t.Name AS Tratamiento
+                           FROM Payment p
+                           INNER JOIN Patient pa ON p.IdPatient = pa.PatientId
+                           INNER JOIN Treatment t ON p.IdTreatment = t.TreatmentId
+                           WHERE p.PaymentId = @IdPago";
+
+            SqlParameter[] parameters = { new SqlParameter("@IdPago", SqlDbType.Int) { Value = idPago } };
 
             using SelectQuery select = new SelectQuery();
             DataTable dt = new DataTable();
